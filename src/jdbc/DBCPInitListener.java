@@ -7,7 +7,6 @@ import java.util.Properties;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 
 import org.apache.commons.dbcp2.ConnectionFactory;
 import org.apache.commons.dbcp2.DriverManagerConnectionFactory;
@@ -21,7 +20,7 @@ import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
  * Application Lifecycle Listener implementation class DBCPInitListener
  *
  */
-@WebListener
+//@WebListener
 public class DBCPInitListener implements ServletContextListener {
 
     /**
@@ -46,23 +45,20 @@ public class DBCPInitListener implements ServletContextListener {
     	 String poolConfig =
         		 sce.getServletContext().getInitParameter("poolConfig");
          Properties prop = new Properties();
-         
-         
+           
          try {
         	 prop.load(new StringReader(poolConfig));
+        	 
          } catch (IOException e) {
         	e.printStackTrace();
 			throw new RuntimeException("config load fail", e);
-		}
-         
+		}         
          
          loadJDBCDriver(prop);
          initConnectionPool(prop);
-
-
-
     }
 
+    
 	private void loadJDBCDriver(Properties prop) {
 		String diverClass = prop.getProperty("jdbcDriver");
 		try {
@@ -99,8 +95,9 @@ public class DBCPInitListener implements ServletContextListener {
 			poolConfig.setTestWhileIdle(true);
 			int minIdle = getIntProperty(prop, "minIdle", 5);
 			poolConfig.setMinIdle(minIdle);;
-			int maxTotal = getIntProperty(prop, "maxTota", 50);
+			int maxTotal = getIntProperty(prop, "maxTotal", 50);
 			poolConfig.setMaxTotal(maxTotal);			
+			
 			
 			
 			GenericObjectPool<PoolableConnection> connectionPool =

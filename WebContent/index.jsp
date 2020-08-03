@@ -10,6 +10,8 @@
 <body>
 
 <div class="leader">팀장 1</div>
+<div>팀장 새로운 줄</div>
+<div>팀원 새로운 줄</div>
 
 </body>
 </html>

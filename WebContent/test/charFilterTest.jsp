@@ -2,10 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<%@ page import="java.sql.*" %>
-<%@ page import="jdbc.connection.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +13,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<title>연결 테스트</title>
+<title>Insert title here</title>
 </head>
 <body>
-<%
-	try (Connection conn = ConnectionProvider.getConnection()) {
-		out.println("커넥션 연결 성공함");
-		
-	} catch (SQLException e) {
-		out.println("커넥션 연결 실패함:" + e.getMessage());
-		application.log("커넥션 연결 실패", e);
-	}
-%>
 
+<form action="">
+<input type="text" name="name" /> <br />
+<input type="submit" value="확인" />
+</form>
+
+<h1>${param.name }</h1>
 
 </body>
 </html>

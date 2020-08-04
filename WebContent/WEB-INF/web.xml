@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>jspPrj</display-name>
+  <display-name>netFlix</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -16,15 +16,16 @@
     <param-name>poolConfig</param-name>
     <param-value>
   		jdbcDriver=com.mysql.cj.jdbc.Driver
-  		jdbcUrl=jdbc:mysql://localhost/BBS?serverTimezone=Asia/Seoul
+  		jdbcUrl=jdbc:mysql://localhost/netFlix?serverTimezone=Asia/Seoul
   		dbUser=root
   		dbPass=rootpw
   		validationQuery=SELECT 1
   		minIdle=3
   		maxTotal=30
-  		poolName=BBS
+  		poolName=netFlix
   	</param-value>
   </context-param>
+  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>util.CharacterEncodingFilter</filter-class>
@@ -35,23 +36,18 @@
   </filter-mapping>
   
   <servlet>
-  	<servlet-name>ContorllerUsingURI</servlet-name>
-  	<servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
-  	<init-param>
-  		<param-name>configFile</param-name>
-  		<param-value>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>
   			/WEB-INF/commandHandlerURI.properties
   		</param-value>
-  	</init-param>
-<!-- 제일 처음 실행한다. -->
-  	<load-on-startup>1</load-on-startup>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
   </servlet>
-  
-<!-- urlpattern으로 오는 요청을 이 서블릿이 일한다. -->
   <servlet-mapping>
-  	<servlet-name>ControllerUsingURI</servlet-name>
-  	<url-pattern>*.do</url-pattern>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
-  
 </web-app>

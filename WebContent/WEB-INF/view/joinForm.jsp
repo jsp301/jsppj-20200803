@@ -50,6 +50,8 @@
 <c:if test="${errors.notMatch }">암호와 확인이 일치하지 않습니다.</c:if>
 </p>
 <input type="submit" value="가입" />
+<input type="button" value="취소" onclick="history.go(-1)" />
+<!-- history.go(-1) = 이전페이지로 -->
 
 </form>
 

@@ -18,6 +18,7 @@
 </head>
 <body>
 ${param.name }님, 회원가입에 성공했습니다.
+
 <br />
 </body>
 </html>

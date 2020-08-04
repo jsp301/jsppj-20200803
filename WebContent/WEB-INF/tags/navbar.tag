@@ -5,7 +5,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-	<a class="navbar-brand" href="${ctxPath }">NETFLIX</a>
+	<a class="navbar-brand" href="${ctxPath }/netFlix/index.jsp">NETFLIX</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,9 @@
 				<a class="nav-link nav-item ${current.logout }"
 					href="logout.do">로그아웃</a>
 				<a class="nav-link nav-item ${current.changePwd }"
-					href="${ctxPath }/changePwd.do">암호변경</a>
+					href="changePwd.do">암호변경</a>
+				<a class="nav-link nav-item ${current.deleteMember }"
+					href="deleteMember.do">회원탈퇴</a>
 			</c:if>
 
 			<c:if test="${empty sessionScope.authUser }">

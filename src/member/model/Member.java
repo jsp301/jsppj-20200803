@@ -37,6 +37,8 @@ public class Member {
 		return userpw.equals(pwd);
 	}
 	
-	
+	public void changePassword(String newPwd) {
+		this.userpw = newPwd;
+	}
 	
 }

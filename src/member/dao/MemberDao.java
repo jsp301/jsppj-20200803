@@ -45,5 +45,21 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		}
 	}
+	
+	public void update(Connection conn, Member member)throws SQLException {
+		try(PreparedStatement pstmt = conn.prepareStatement("update user set userPassword= ?"
+				+ " where userId =?")){
+			pstmt.setString(1, member.getUserpw());
+			pstmt.setString(2,member.getUserId());
+			pstmt.executeUpdate();
+		}
+	}
+	
+	public void deleteMember(Connection conn, Member member)throws SQLException {
+		try(PreparedStatement pstmt = conn.prepareStatement("delete from user where userId=?")){
+			pstmt.setString(1, member.getUserId());
+			pstmt.executeUpdate();
+		}
+	}
 
 }

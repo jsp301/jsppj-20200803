@@ -4,6 +4,7 @@
 <!-- 코어태그, 함수태그 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,7 @@
 <title>회원 가입 신청</title>
 </head>
 <body>
+	
 	<u:navbar join="active" />
 
 	<div class="container">

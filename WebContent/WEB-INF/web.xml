@@ -16,13 +16,13 @@
     <param-name>poolConfig</param-name>
     <param-value>
   		jdbcDriver=com.mysql.cj.jdbc.Driver
-  		jdbcUrl=jdbc:mysql://localhost/jspPrj?serverTimezone=Asia/Seoul
+  		jdbcUrl=jdbc:mysql://localhost/BBS?serverTimezone=Asia/Seoul
   		dbUser=root
   		dbPass=rootpw
   		validationQuery=SELECT 1
   		minIdle=3
   		maxTotal=30
-  		poolName=jspPrj
+  		poolName=BBS
   	</param-value>
   </context-param>
   <filter>

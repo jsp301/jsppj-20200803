@@ -25,7 +25,6 @@
   		poolName=netFlix
   	</param-value>
   </context-param>
-  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>util.CharacterEncodingFilter</filter-class>
@@ -34,16 +33,6 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  <filter>
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<filter-class>filter.LoginCheckFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<url-pattern>/changePwd.do</url-pattern>
-  </filter-mapping>
-  
   <servlet>
     <servlet-name>ControllerUsingURI</servlet-name>
     <servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
@@ -59,4 +48,15 @@
     <servlet-name>ControllerUsingURI</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>fileUploadServlet</servlet-name>
+  	<servlet-class>uploadFile.UploadServlet</servlet-class>
+  	<multipart-config></multipart-config>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>fileUploadServlet</servlet-name>
+  	<url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

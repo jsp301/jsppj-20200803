@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import jdbc.JdbcUtil;
 import member.model.Member;
 
+// 메소드 모음집
 public class MemberDao {
 	
 	public Member selectById(Connection conn, String id)throws SQLException {

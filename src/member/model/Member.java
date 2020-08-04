@@ -1,5 +1,6 @@
 package member.model;
 
+//Member 저장소
 public class Member {
 	private String userId;
 	private String userpw;
@@ -16,6 +17,7 @@ public class Member {
 		this.userGender = userGender;
 		this.userEmail = userEmail;
 	}
+	
 	
 	public String getUserId() {
 		return userId;

@@ -17,39 +17,31 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <title>Insert title here</title>
 </head>
 <body>
 	<u:navbar changePwd="active" />
 
-	<div class="container">
+	<form action="changePwd.do" method="post">
+	<div class="login-box">
+  <h1>Change</h1>
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" placeholder="Current Password" id = "input3" name="curPwd">
+    <c:if test="${errors.curPwd }">현재 암호를 입력하세요.</c:if> 
+    <c:if test="${errors.badCurPwd }">현재 암호가 일치하지 않습니다.</c:if>
+  </div>
+  
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" placeholder="New Password" id = "input4" name="newPwd">
+    <c:if test="${errors.newPwd }">새 암호를 입력하세요.</c:if>
+  </div>
 
-		<form action="changePwd.do" method="post">
-			
-
-
-			<div class="form-group">
-				<label for="input3">현재 암호</label> <input type="password"
-					class="form-control" name="curPwd" id="input3" required> <small
-					class="form-text text-muted"> <c:if
-						test="${errors.curPwd }">현재 암호를 입력하세요.</c:if> <c:if
-						test="${errors.badCurPwd }">현재 암호가 일치하지 않습니다.</c:if>
-				</small>
-			</div>
-
-			<div class="form-group">
-				<label for="input4">새 암호</label> <input type="password"
-					class="form-control" name="newPwd" id="input4" required> <small
-					class="form-text text-muted"> <c:if
-						test="${errors.newPwd }">새 암호를 입력하세요.</c:if>
-				</small>
-			</div>
-
-			<input class="btn btn-primary" type="submit" value="변경" />
-
-		</form>
-	</div>
+  <input type="submit" class="btn" value="Sign in">
+</div>
+</form>
 
 </body>
 </html>

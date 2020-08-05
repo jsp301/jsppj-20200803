@@ -23,7 +23,7 @@ public class LoginService {
 				throw new LoginFailException();
 			}
 			
-			return new User(member.getUserId(), member.getUserName());
+			return new User(member.getUserId(), member.getUserName(),member.getUserGender(),member.getUserEmail());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

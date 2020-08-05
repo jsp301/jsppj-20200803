@@ -12,6 +12,9 @@
   <listener>
     <listener-class>jdbc.DBCPInitListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>util.AddContextPathListener</listener-class>
+  </listener>
   <context-param>
     <param-name>poolConfig</param-name>
     <param-value>
@@ -34,14 +37,14 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <filter>
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<filter-class>filter.LoginCheckFilter</filter-class>
+    <filter-name>LoginCheckFilter</filter-name>
+    <filter-class>filter.LoginCheckFilter</filter-class>
   </filter>
   <filter-mapping>
-  <filter-name>LoginCheckFilter</filter-name>
-  <url-pattern>/changePwd.do</url-pattern>
+    <filter-name>LoginCheckFilter</filter-name>
+    <url-pattern>/changePwd.do</url-pattern>
+    <url-pattern>/movie/write.do</url-pattern>
   </filter-mapping>
-  
   <servlet>
     <servlet-name>ControllerUsingURI</servlet-name>
     <servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
@@ -57,15 +60,13 @@
     <servlet-name>ControllerUsingURI</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>fileUploadServlet</servlet-name>
-  	<servlet-class>uploadFile.UploadServlet</servlet-class>
-  	<multipart-config></multipart-config>
+    <servlet-name>fileUploadServlet</servlet-name>
+    <servlet-class>uploadFile.UploadServlet</servlet-class>
+    <multipart-config/>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>fileUploadServlet</servlet-name>
-  	<url-pattern>/upload</url-pattern>
+    <servlet-name>fileUploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
   </servlet-mapping>
-  
 </web-app>

@@ -30,8 +30,13 @@
 
 	<div class="container mt-3">
 		<div class="jumbotron">
-			<h1 class="display-4">리뷰</h1>
-			<p class="lead">리뷰작성</p>
+			<!-- ?? 테이블로 칸 맞춰서 정렬?? -->
+			<!-- <u:pre value="영화           리뷰"/> -->
+				<h1 class="display-4">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
+			<a class="lead" href="write.do">새 영화</a>
+			<a href=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+			<a class="lead" href="">리뷰 작성</a>
+						
 			<hr class="my-4">
 			<p>Where</p>
 			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>

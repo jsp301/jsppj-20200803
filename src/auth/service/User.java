@@ -3,6 +3,13 @@ package auth.service;
 public class User {
 	private String id;
 	private String name;
+
+	
+	public User (String id) {
+		this.id = id;
+	}
+	
+
 	private String gender;
 	private String email;
 	
@@ -21,6 +28,7 @@ public class User {
 	public String getName() {
 		return name;
 	}
+
 	public String getGender() {
 		return gender;
 	}
@@ -28,5 +36,6 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
+
 
 }

@@ -38,9 +38,10 @@ public class InsertCheckServlet extends HttpServlet {
 		
 		
 		
-		Movie movie = new Movie(null, "title1", "김감독", "로코", Date.valueOf("2020-10-10"));
+		Movie movie = new Movie(null, "title1", "김감독", "로코", "222");
 		
 
+		
 		try {
 			conn = ConnectionProvider.getConnection();
 			MovieDao dao = new MovieDao();

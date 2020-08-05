@@ -7,10 +7,9 @@ public class Movie {
 	private String title; 	//movieTitle
 	private String director;
 	private String genre;	//movieGenre
-	private Date releaseDate;
+	private String releaseDate;
 	
-	public Movie(Integer number, String title, String director, String movieGenre, Date releaseDate) {
-		super();
+	public Movie(Integer number, String title, String director, String movieGenre, String releaseDate) {
 		this.number = number;
 		this.title = title;
 		this.director = director;
@@ -30,7 +29,7 @@ public class Movie {
 	public String getMovieGenre() {
 		return genre;
 	}
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 	

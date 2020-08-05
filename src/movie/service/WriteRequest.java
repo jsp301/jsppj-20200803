@@ -6,6 +6,7 @@ import java.util.Map;
 import auth.service.User;
 
 public class WriteRequest {
+	private Integer number;
 	private User userid;
 	private String title;
 	private String score;
@@ -14,10 +15,17 @@ public class WriteRequest {
 	
 	private String director;
 	private String genre;	//movieGenre
-	private Date releaseDate;
+	private String releaseDate;
 	
+	public WriteRequest(Integer number, String title, String director, String genre, String releaseDate) {
+		this.number=number;
+		this.title = title;
+		this.director = director;
+		this.genre = genre;
+		this.releaseDate = releaseDate;
+	}
 	
-	public WriteRequest(User user, String title, String score, String content) {
+	/*public WriteRequest(User user, String title, String score, String content) {
 		this(user,title,score,content, "");
 	}
 
@@ -33,7 +41,7 @@ public class WriteRequest {
 	
 		
 	public WriteRequest(User user, String title, String score, String content, String fileName, String director,
-			String genre, Date releaseDate) {
+			String genre, String releaseDate) {
 		super();
 		this.userid = user;
 		this.title = title;
@@ -44,7 +52,7 @@ public class WriteRequest {
 		this.genre = genre;
 		this.releaseDate = releaseDate;
 	}
-
+*/
 
 	public User getUser() {
 		return userid;
@@ -70,7 +78,7 @@ public class WriteRequest {
 	public String getGenre() {
 		return genre;
 	}
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 

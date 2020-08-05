@@ -36,27 +36,37 @@ public class WriteMovieHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletRequest req2) {
+		
+		WriteRequest writeReq =  new WriteRequest(null, 
+				req.getParameter("title"), 
+				req.getParameter("director"), 
+				req.getParameter("genre"),
+				req.getParameter("releaseDate"));
+		
+		
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 		
 		//authUser -> auth->LoginHandler
 		//getSession(false) - HttpSession이 존재하면 현재 HttpSession을 반환하고 존재하지 않으면 새로 생성하지 않고 그냥 null을 반환합니다.
-		User user = (User)req.getSession(false).getAttribute("authUser");
-		WriteRequest writeReq = createWriteRequest(user, req);
 		writeReq.validate(errors);
 		
 		if(!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-		
-		int newMovieNo = writeService.write(writeReq);
-		req.setAttribute("newMovieNo", newMovieNo);
-		
+	try {
+		/*int newMovieNo = writeService.write(writeReq);
+		req.setAttribute("newMovieNo", newMovieNo);*/
+		writeService.write(writeReq);
 		return "/WEB-INF/view/newMovieSuccess.jsp";
+	}catch(Exception e){
+		e.printStackTrace();
+		return FORM_VIEW;
 	}
+}
 
 
-	private WriteRequest createWriteRequest(User user, HttpServletRequest req) {
+	/*private WriteRequest createWriteRequest(User user, HttpServletRequest req) {
 		return new WriteRequest(
 				new User(user.getId()),
 				req.getParameter("title"),
@@ -64,7 +74,7 @@ public class WriteMovieHandler implements CommandHandler {
 				req.getParameter("content"),
 				req.getParameter("fileName")
 				);
-	}
+	}*/
 	
 
 }

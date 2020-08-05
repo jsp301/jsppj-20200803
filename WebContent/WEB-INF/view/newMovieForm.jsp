@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
 </head>
 <body>
 
-<form action="write.do" method="post" enctype="multipart/form-data">
+<form action="write.do" method="post">
 <p>
 제목: <br /> <input type="text" name="title" value="${param.title }" />
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
@@ -29,12 +30,12 @@
 장르: <br /> <input type="text" name="genre" value="${param.genre }" />
 </p>
 <p>
-개봉일: <br /> <input type="date" name="releaseDate" value="${param.releaseDate }" />
+개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" />
 </p>
 <!--  
 <p>
 파일: <br />
-<input type="file" name="file1" accept="immage/*"/>
+<input type="file" name="file1" accept="image/*"/>
 </p>
 -->
 

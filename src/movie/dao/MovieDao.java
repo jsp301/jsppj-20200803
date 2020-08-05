@@ -29,7 +29,7 @@ public class MovieDao {
 			pstmt.setString(1, movie.getTitle());
 			pstmt.setString(2, movie.getDirector());
 			pstmt.setString(3, movie.getMovieGenre());
-			pstmt.setDate(4, (java.sql.Date) movie.getReleaseDate());
+			pstmt.setString(4, movie.getReleaseDate());
 						
 			int insertedCount = pstmt.executeUpdate();
 			

@@ -14,19 +14,18 @@
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav ">
 			<c:if test="${not empty sessionScope.authUser }">
-				<a class="nav-link nav-item ${current.logout }"
-					href="logout.do">로그아웃</a>
-				<a class="nav-link nav-item ${current.changePwd }"
+				<a class="nav-link nav-item ${current.logout }" href="logout.do">로그아웃</a>
+				<a class="nav-link nav-item ${current.memberInfo }"
+					href="${ctxPath }/netFlix/memberInfo.jsp">회원정보</a>
+				<%-- <a class="nav-link nav-item ${current.changePwd }"
 					href="changePwd.do">암호변경</a>
 				<a class="nav-link nav-item ${current.deleteMember }"
-					href="deleteMember.do">회원탈퇴</a>
+					href="deleteMember.do">회원탈퇴</a> --%>
 			</c:if>
 
 			<c:if test="${empty sessionScope.authUser }">
-				<a class="nav-link nav-item ${current.join }"
-					href="join.do">회원가입</a>
-				<a class="nav-link nav-item ${current.login }"
-					href="login.do">로그인</a>
+				<a class="nav-link nav-item ${current.join }" href="join.do">회원가입</a>
+				<a class="nav-link nav-item ${current.login }" href="login.do">로그인</a>
 			</c:if>
 
 		</div>

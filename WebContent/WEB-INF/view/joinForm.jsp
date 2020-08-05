@@ -43,11 +43,6 @@
     <input type="text" placeholder="UserName" id = "input2" name = "name" value="${param.name }">
     <c:if test="${errors.name }">이름을 입력하세요.</c:if>
   </div>
-  <div class="textbox">
-    <i class="fa fa-envelope"></i>
-    <input type="text" placeholder="UserEmail" id = "input2" name = "email" value="${param.email }">
-    <c:if test="${errors.name }">이메일을 입력하세요.</c:if>
-  </div>
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label for="gender"></label> &nbsp;&nbsp;
 				<label class="btn btn-secondary active"> <input type="radio"
@@ -56,6 +51,11 @@
 					name="gender" id="option2" value="male">Male
 				</label> 
 			</div>
+  <div class="textbox">
+    <i class="fa fa-envelope"></i>
+    <input type="text" placeholder="UserEmail" id = "input2" name = "email" value="${param.email }">
+    <c:if test="${errors.name }">이메일을 입력하세요.</c:if>
+  </div>
   <div class="textbox">
     <i class="fas fa-lock"></i>
     <input type="password" placeholder="Password" id = "input3" name="password" required>

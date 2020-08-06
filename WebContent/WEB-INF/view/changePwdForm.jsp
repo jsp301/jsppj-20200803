@@ -39,7 +39,7 @@
     <c:if test="${errors.newPwd }">새 암호를 입력하세요.</c:if>
   </div>
 
-  <input type="submit" class="btn" value="Sign in">
+  <input type="submit" class="btn" value="Change">
 </div>
 </form>
 

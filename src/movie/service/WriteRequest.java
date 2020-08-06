@@ -17,42 +17,23 @@ public class WriteRequest {
 	private String genre;	//movieGenre
 	private String releaseDate;
 	
-	public WriteRequest(Integer number, String title, String director, String genre, String releaseDate) {
+	public WriteRequest(Integer number, String title, String director, 
+			String genre, String releaseDate) {
+		this(number, title, director, genre, releaseDate, "");
+	}
+	
+	public WriteRequest(Integer number, String title, String director, 
+			String genre, String releaseDate, String fileName) {
 		this.number=number;
 		this.title = title;
 		this.director = director;
 		this.genre = genre;
 		this.releaseDate = releaseDate;
-	}
-	
-	/*public WriteRequest(User user, String title, String score, String content) {
-		this(user,title,score,content, "");
-	}
-
-
-	public WriteRequest(User user, String title, String score, String content, String fileName) {
-		super();
-		this.userid = user;
-		this.title = title;
-		this.score = score;
-		this.content = content;
 		this.fileName = fileName;
 	}
 	
-		
-	public WriteRequest(User user, String title, String score, String content, String fileName, String director,
-			String genre, String releaseDate) {
-		super();
-		this.userid = user;
-		this.title = title;
-		this.score = score;
-		this.content = content;
-		this.fileName = fileName;
-		this.director = director;
-		this.genre = genre;
-		this.releaseDate = releaseDate;
-	}
-*/
+	
+
 
 	public User getUser() {
 		return userid;

@@ -17,6 +17,7 @@
 				<a class="nav-link nav-item ${current.logout }" href="logout.do">로그아웃</a>
 				<a class="nav-link nav-item ${current.memberInfo }"
 					href="${ctxPath }/memberInfo.jsp">회원정보</a>
+				<a class="nav-link nav-item" href="message.do">리뷰</a>
 				<%-- <a class="nav-link nav-item ${current.changePwd }"
 					href="changePwd.do">암호변경</a>
 				<a class="nav-link nav-item ${current.deleteMember }"

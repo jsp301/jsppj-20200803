@@ -8,14 +8,26 @@ public class Movie {
 	private String director;
 	private String genre;	//movieGenre
 	private String releaseDate;
+	private String fileName;
 	
-	public Movie(Integer number, String title, String director, String movieGenre, String releaseDate) {
+	public Movie(Integer number, String title, String director, 
+			String movieGenre, String releaseDate) {
+		this(number, title, director, movieGenre, releaseDate, "");
+		
+	}
+	
+
+
+	public Movie(Integer number, String title, String director, 
+			String movieGenre, String releaseDate, String fileName) {
 		this.number = number;
 		this.title = title;
 		this.director = director;
 		this.genre = movieGenre;
 		this.releaseDate = releaseDate;
+		this.fileName = fileName;
 	}
+	
 	
 	public Integer getNumber() {
 		return number;
@@ -31,6 +43,9 @@ public class Movie {
 	}
 	public String getReleaseDate() {
 		return releaseDate;
+	}
+	public String getFileName() {
+		return fileName;
 	}
 	
 	

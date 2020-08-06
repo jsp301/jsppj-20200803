@@ -42,7 +42,53 @@
 			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>
 		</div>
 	</div>
-
+	<hr />
+	<h3>액션</h3>
+	<hr />
+	<div class="container mt-3">
+		<table border="1" width="50%">
+			<tr>
+				<td colspan="3">
+				<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left" bgcolor="gold">
+				<font face="서울꿈" size="5" color="blue" >
+				영화 소개				
+				</font>
+				</marquee>
+				</td>
+			</tr>
+			<tr>
+				<td>영화1</td>
+				<td>영화2</td>
+				<td>영화3</td>
+			</tr>
+			<tr>
+				<td style="white-space: pre-wrap;">
+				<img src="/imgs/1/반도.jpg" alt="" />
+				<c:if test="${not empty movieData.fileName }">
+					<img src="/imgs/${movieData.movie.number }/${movieData.fileName}" alt="" />
+				</c:if>
+				</td>
+				<td style="white-space: pre-wrap;">
+				<img src="/imgs/2/redheart1.jpg" alt="" />
+				</td>
+				<td style="white-space: pre-wrap;">
+				<img src="/imgs/1/반도.jpg" alt="" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<hr />
+	<h3>로맨스 코미디</h3>
+	<hr />
+	<div class="container mt-3">
+		<table border="1" width="100%">
+				<tr>
+				<td>영화4</td>
+				<td>영화5</td>
+				<td>영화6</td>
+			</tr>
+		</table>
+	</div>	
 </body>
 </html>
 

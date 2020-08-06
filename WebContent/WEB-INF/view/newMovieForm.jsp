@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<form action="write.do" method="post">
+<form action="write.do" method="post" enctype="multipart/form-data">
 <p>
 제목: <br /> <input type="text" name="title" value="${param.title }" />
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
@@ -28,18 +28,28 @@
 </p>
 <p>
 장르: <br /> <input type="text" name="genre" value="${param.genre }" />
+<select name="genre1">
+	<option value="romance">로맨스/멜로</option>
+	<option value="Sci-fi">SF/판타지</option>
+	<option value="thriller">공포/스릴러</option>
+	<option value="drama">드라마</option>
+	<option value="action">액션</option>
+	<option value="comedy">코미디</option>
+</select>
 </p>
 <p>
 개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" />
 </p>
-<!--  
+
 <p>
 파일: <br />
 <input type="file" name="file1" accept="image/*"/>
 </p>
--->
+
+
 
 <input type="submit" value="새 영화 등록" />
+<input type="button" onclick="${ctxPath }/index.jsp" value="취소" />
 </form>
 
 

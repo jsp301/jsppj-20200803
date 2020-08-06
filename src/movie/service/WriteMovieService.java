@@ -12,6 +12,7 @@ import movie.model.Movie;
 import movie.model.MovieContent;
 
 public class WriteMovieService {
+	
 	private MovieDao movieDao = new MovieDao();
 	/*private MovieContentDao contentDao = new MovieContentDao();*/
 	
@@ -21,13 +22,6 @@ public class WriteMovieService {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			
-			/*Movie movie = new Movie(
-					null, 
-					req.getTitle(), 
-					req.getDirector(),
-					req.getGenre(),
-					req.getReleaseDate()
-					);*/
 			Movie movie = toMovie(req);
 			Movie savedMovie = movieDao.insert(conn, movie);
 			
@@ -50,6 +44,7 @@ public class WriteMovieService {
 			
 			conn.commit();
 			
+			//새로 추가한 게시글 번호 리턴
 			return savedMovie.getNumber();
 			
 		} catch (SQLException e) {
@@ -63,15 +58,13 @@ public class WriteMovieService {
 		} finally {
 			JdbcUtil.close(conn);
 		}
-
-	}
-	private Movie toMovie(WriteRequest req) {
 		
-		return new Movie(null, req.getTitle(), req.getDirector(),req.getGenre(), req.getReleaseDate());
+	}
+	
+	private Movie toMovie(WriteRequest req) {		
+		return new Movie(null, req.getTitle(), req.getDirector(), 
+				req.getGenre(), req.getReleaseDate(), req.getFileName());
 	}
 
-//	private Movie toMovie(WriteRequest req) {
-//		Date now = new Date();
-//		return new Movie(null, req.getWriter(), req.getTitle(), now, now, 0);
-//	}
+
 }

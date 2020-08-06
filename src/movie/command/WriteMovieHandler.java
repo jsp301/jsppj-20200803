@@ -5,8 +5,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import auth.service.User;
+import movie.service.WriteFileService;
 import movie.service.WriteMovieService;
 import movie.service.WriteRequest;
 import mvc.controller.CommandHandler;
@@ -15,6 +17,7 @@ public class WriteMovieHandler implements CommandHandler {
 
 	private static final String FORM_VIEW ="/WEB-INF/view/newMovieForm.jsp";
 	private WriteMovieService writeService = new WriteMovieService();
+	private WriteFileService writeFile = new WriteFileService();
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) 
@@ -29,52 +32,73 @@ public class WriteMovieHandler implements CommandHandler {
 			return null;
 		}
 	}
+	
 
 	
 	private String processForm(HttpServletRequest req, HttpServletRequest req2) {
 		return FORM_VIEW;
 	}
 
-	private String processSubmit(HttpServletRequest req, HttpServletRequest req2) {
+	private String processSubmit(HttpServletRequest req, HttpServletRequest req2) 
+	throws Exception {
 		
-		WriteRequest writeReq =  new WriteRequest(null, 
-				req.getParameter("title"), 
-				req.getParameter("director"), 
-				req.getParameter("genre"),
-				req.getParameter("releaseDate"));
+//		WriteRequest writeReq =  new WriteRequest(null, 
+//				req.getParameter("title"), 
+//				req.getParameter("director"), 
+//				req.getParameter("genre"),
+//				req.getParameter("releaseDate"));
 		
+		Part filePart = req.getPart("file1");
+		String fileName = filePart.getSubmittedFileName();
+		
+		fileName = fileName == null ? "" : fileName;
 		
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
+
 		
 		//authUser -> auth->LoginHandler
 		//getSession(false) - HttpSession이 존재하면 현재 HttpSession을 반환하고 존재하지 않으면 새로 생성하지 않고 그냥 null을 반환합니다.
+		WriteRequest writeReq = createWriteRequest(req, fileName);
 		writeReq.validate(errors);
 		
 		if(!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-	try {
-		/*int newMovieNo = writeService.write(writeReq);
-		req.setAttribute("newMovieNo", newMovieNo);*/
-		writeService.write(writeReq);
+		
+		int newMovieNo = writeService.write(writeReq);
+		
+		
+		if (!(fileName == null 
+				|| fileName.isEmpty() 
+				|| filePart.getSize() == 0 )) {
+			
+			writeFile.write(filePart, newMovieNo);
+		}
+		
+		req.setAttribute("newMovieNo", newMovieNo);
+		
 		return "/WEB-INF/view/newMovieSuccess.jsp";
-	}catch(Exception e){
-		e.printStackTrace();
-		return FORM_VIEW;
 	}
-}
 
-
-	/*private WriteRequest createWriteRequest(User user, HttpServletRequest req) {
+	
+	private WriteRequest createWriteRequest(
+			HttpServletRequest req) {
+		
+		return createWriteRequest(req, "");
+	}
+	
+	private WriteRequest createWriteRequest(
+			HttpServletRequest req, String fileName) {
+		
 		return new WriteRequest(
-				new User(user.getId()),
+				null, 
 				req.getParameter("title"),
-				req.getParameter("score"),
-				req.getParameter("content"),
-				req.getParameter("fileName")
-				);
-	}*/
+				req.getParameter("director"), 
+				req.getParameter("genre"),
+				req.getParameter("releaseDate"),
+				fileName);		
+	}
 	
 
 }

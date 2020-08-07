@@ -38,7 +38,8 @@
 </select>
 </p>
 <p>
-개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" />
+개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" 
+placeholder="2020-##-##형식 입력" />
 </p>
 
 <p>
@@ -49,7 +50,7 @@
 
 
 <input type="submit" value="새 영화 등록" />
-<input type="button" onclick="${ctxPath }/index.jsp" value="취소" />
+<input type="button" onclick="location='${ctxPath}/index.jsp'" value="취소" />
 </form>
 
 

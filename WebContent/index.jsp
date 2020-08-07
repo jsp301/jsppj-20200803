@@ -32,28 +32,32 @@
 		<div class="jumbotron">
 			<!-- ?? 테이블로 칸 맞춰서 정렬?? -->
 			<!-- <u:pre value="영화           리뷰"/> -->
-				<h1 class="display-4">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
-			<a class="lead" href="write.do">새 영화</a>
-			<a href=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
-			<a class="lead" href="">리뷰 작성</a>
-						
-			<hr class="my-4">
-			<p>Where</p>
+			<h1 class="display-4" style="color:red">NetFlix의 모든 것</h1>
+			<h2>다양한 영화, tv프로그램 정보를 만나보세요.</h2>
+			
+			<hr class="my-5">
+			
+			<h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
+			<a class="lead" href="write.do">새 영화</a> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<a class="lead" href="">리뷰	작성</a>
+			<hr />
 			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>
 		</div>
 	</div>
+
 	<hr />
 	<h3>액션</h3>
 	<hr />
 	<div class="container mt-3">
-		<table border="1" width="50%">
+		<table border="1" width="100%">
 			<tr>
 				<td colspan="3">
-				<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left" bgcolor="gold">
-				<font face="서울꿈" size="5" color="blue" >
-				영화 소개				
-				</font>
-				</marquee>
+					<marquee onmouseover="stop();"
+						onmouseout="start();" scrollamount="10" direction="left"
+						bgcolor="gold">
+						<font face="서울꿈" size="5" color="blue"> 영화 소개 </font>
+					</marquee>
 				</td>
 			</tr>
 			<tr>
@@ -62,17 +66,19 @@
 				<td>영화3</td>
 			</tr>
 			<tr>
-				<td style="white-space: pre-wrap;">
-				<img src="/imgs/1/반도.jpg" alt="" />
-				<c:if test="${not empty movieData.fileName }">
-					<img src="/imgs/${movieData.movie.number }/${movieData.fileName}" alt="" />
-				</c:if>
+				<td>
+					<img onclick="location='${ctxPath }/read.do'" src="/imgs/2/kissing booth2.jpg" style="width: 300px; height: auto;" />
+					
+					<!-- 이런 방식으로 입력!! -->
+					<c:if test="${not empty movieData.fileName }">
+						<img src="/imgs/${movieData.movie.number }/${movieData.fileName}"/>
+					</c:if></td>
+					
+				<td>
+					<img onclick="location='${ctxPath }/read.do'" src="/imgs/3/반도.jpg" style="width: 300px; height: auto;" />
 				</td>
-				<td style="white-space: pre-wrap;">
-				<img src="/imgs/2/redheart1.jpg" alt="" />
-				</td>
-				<td style="white-space: pre-wrap;">
-				<img src="/imgs/1/반도.jpg" alt="" />
+				<td>
+					<img onclick="location='${ctxPath }/read.do'" src="/imgs/4/강철비2.jpg" style="width: 300px; height: auto;" />
 				</td>
 			</tr>
 		</table>
@@ -82,13 +88,102 @@
 	<hr />
 	<div class="container mt-3">
 		<table border="1" width="100%">
-				<tr>
+			<tr>
 				<td>영화4</td>
 				<td>영화5</td>
 				<td>영화6</td>
 			</tr>
+			<tr>
+				<td>
+					<button onclick="location='${ctxPath }/read.do'">
+						<img src="/imgs/2/kissing booth2.jpg" style="width: 300px; height: auto;" />
+					</button>
+				</td>
+				<td>
+					<button onclick="location='${ctxPath }/read.do'">
+						<img src="/imgs/5/오케이 마담.jpg" style="width: 300px; height: auto;" />
+					</button>
+				</td>
+				<td>
+					<button onclick="location='${ctxPath }/read.do'">
+						<img src="/imgs/2/kissing booth2.jpg" style="width: 300px; height: auto;" />
+					</button>
+				</td>
+			</tr>
 		</table>
-	</div>	
+		<div class="container">
+			<div>제목 : []</div>
+			<div>평점 : []점</div>
+		</div>
+		<div class="container" >
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+			       평점 : []점 <br />
+				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+			       평점 : []점 <br />
+				<img src="/imgs/2/kissing booth2.jpg" style="width: 320px; height: auto;" />
+			</button>
+
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+			       평점 : []점 <br />
+				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
+			</button>
+
+		</div>
+	</div>
+
+	</div>
+	
+	
+	
+	<hr />
+	<footer class="text-muted" style="background-color:#E6E6FA">
+		<div class="container">
+			
+			<p class="float-right">
+				<a href="#">Back to top</a>
+			</p>
+	
+			<a href="">서비스 이용약관</a> |
+			<a href="">개인정보 처리방침</a>
+			
+			<p></p>
+			고객센터 ㅣ cs@netflix.co.kr <br />
+			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
+			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
+		
+			<p>&copy; 2020, NetFlix.Inc
+				Enjoy your day!</p>
+			<p>
+				New to Movie? <a href="">Visit the
+					homepage</a> or read our <a
+					href="">getting started	guide</a>.
+			</p>
+			<svg preserveAspectRatio="" >
+		</div>
+	</footer>
 </body>
 </html>
 

@@ -17,7 +17,9 @@ import movie.service.MovieNotFoundException;
 import mvc.controller.CommandHandler;
 
 public class ChangeMemberInfoHandler implements CommandHandler{
+	
 	private static final String FORM_VIEW = "/WEB-INF/view/changePwdForm.jsp";
+	
 	private ChangeMemberInfoService changeMISerive = new ChangeMemberInfoService();
 	private ReadMemberService readService = new ReadMemberService();
 		

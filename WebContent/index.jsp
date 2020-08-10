@@ -46,8 +46,127 @@
 		</div>
 	</div>
 
+
+
 	<hr />
-	<h3>액션</h3>
+	<div class="container" >
+	<c:forEach var="movie" items="${mainMovie.content }">
+			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
+			<c:out value="${movie.number }" /> <br />
+			제목: <c:out value="${movie.title }" /> <br />
+			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
+			</button> 
+	</c:forEach>
+	</div>
+	
+	<table border="1">
+<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
+			<tr>
+				<td>등록된 영화가 없습니다.</td>
+			</tr>
+		</c:if> 
+--%>
+		
+		
+		
+		<!-- <a href="read.do?no=${movie.number }">
+					<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
+			 </a> -->
+		
+		<c:if test="${mainMoive.hasMovies() }">
+			<tr>
+				<c:if test="${mainMovie.startPage>5 }">
+				<a href="main.do?pageNo=${mainMovie.startPage-5 }">[이전]</a>
+				</c:if>
+				<c:forEach var="pNo" begin="${mainMovie.startPage }" end="${mainMovie.endPage }">
+					<a href="list.do?pageNo=${pNo }">[${pNo }]</a>
+				</c:forEach>
+				<c:if test="${movieMain.endPage < movieMain.totalPages }">
+					<a href="list.do?pageNo=${movieMain.startPage + 5 }">[다음]</a>
+				</c:if>
+			</tr>
+		</c:if>
+	</table>
+
+		<hr />
+		<div class="container" >			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [${movieDat.movie.title }] <br />
+				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/2/kissing booth2.jpg" style="width: 320px; height: auto;" />
+			</button>
+
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
+			</button>
+			
+			<button onclick="location='${ctxPath }/read.do'">
+				제목 : [] <br />
+				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
+			</button>
+
+		</div>
+	</div>
+
+
+	
+	
+	
+	
+	<hr />
+	<footer class="text-muted" style="background-color:#E6E6FA">
+		<div class="container">
+			
+			<p class="float-right">
+				<a href="#">Back to top</a>
+			</p>
+	
+			<a href="">서비스 이용약관</a> |
+			<a href="">개인정보 처리방침</a>
+			
+			<p></p>
+			고객센터 ㅣ cs@netflix.co.kr <br />
+			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
+			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
+		
+			<p>&copy; 2020, NetFlix.Inc
+				Enjoy your day!</p>
+			<p>
+				New to Movie? <a href="">Visit the
+					homepage</a> or read our <a
+					href="">getting started	guide</a>.
+			</p>
+			<svg preserveAspectRatio="" >
+		</div>
+	</footer>
+</body>
+</html>
+
+
+
+
+
+<%-- 	<h3>액션</h3>
 	<hr />
 	<div class="container mt-3">
 		<table border="1" width="100%">
@@ -114,84 +233,7 @@
 		<div class="container">
 			<div>제목 : []</div>
 			<div>평점 : []점</div>
-		</div>
-		<div class="container" >
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				제목 : [] <br />
-			       평점 : []점 <br />
-				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
-			</button>
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				제목 : [] <br />
-			       평점 : []점 <br />
-				<img src="/imgs/2/kissing booth2.jpg" style="width: 320px; height: auto;" />
-			</button>
-
-			<button onclick="location='${ctxPath }/read.do'">
-				제목 : [] <br />
-			       평점 : []점 <br />
-				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
-			</button>
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
-			</button>
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
-			</button>
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
-			</button>
-			
-			<button onclick="location='${ctxPath }/read.do'">
-				<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
-			</button>
-
-		</div>
-	</div>
-
-	</div>
-	
-	
-	
-	<hr />
-	<footer class="text-muted" style="background-color:#E6E6FA">
-		<div class="container">
-			
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-	
-			<a href="">서비스 이용약관</a> |
-			<a href="">개인정보 처리방침</a>
-			
-			<p></p>
-			고객센터 ㅣ cs@netflix.co.kr <br />
-			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
-			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
-		
-			<p>&copy; 2020, NetFlix.Inc
-				Enjoy your day!</p>
-			<p>
-				New to Movie? <a href="">Visit the
-					homepage</a> or read our <a
-					href="">getting started	guide</a>.
-			</p>
-			<svg preserveAspectRatio="" >
-		</div>
-	</footer>
-</body>
-</html>
-
-
-
-
-
-
+		</div> --%>
 
 
 

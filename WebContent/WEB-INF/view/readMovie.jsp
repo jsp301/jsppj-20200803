@@ -22,7 +22,7 @@
 <table border="1" width="100%">
 <tr>
 	<td width="10%">번호</td>
-	<td>${movieData.movie.number }</td>
+	<td>${movie.number }</td>
 </tr>
 <tr>
 	<td>제목</td>
@@ -46,7 +46,7 @@
 <tr>
 	<td colspan="2">
 	<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }" />
-		<a href="${ctxPath }/index.jsp">[목록]</a>
+		<a href="${ctxPath }/main.do">[목록]</a>
 		<!--  
 		<c:if test="${authUser.id == articleData.article.writer.id }">
 		<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>

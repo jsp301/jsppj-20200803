@@ -51,7 +51,7 @@ placeholder="2020-##-##형식 입력" />
 
 
 <input type="submit" value="새 영화 등록" />
-<input type="button" onclick="location='${ctxPath}/index.jsp'" value="취소" />
+<input type="button" onclick="location='${ctxPath}/main.do'" value="취소" />
 </form>
 
 

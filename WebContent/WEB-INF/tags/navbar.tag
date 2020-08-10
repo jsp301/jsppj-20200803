@@ -5,7 +5,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-	<a class="navbar-brand" href="${ctxPath }/index.jsp">NETFLIX</a>
+	<a class="navbar-brand" href="${ctxPath }/main.do">NETFLIX</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,10 @@
 				<a class="nav-link nav-item ${current.login }" href="login.do">로그인</a>
 			</c:if>
 
+			<c:if test="${sessionScope.authUser.id eq 'admin'}">
+				<a class="nav-link nav-item" href="write.do">영화 등록</a>
+			</c:if>
+						
 		</div>
 	</div>
 </nav>

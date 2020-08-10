@@ -19,7 +19,7 @@
 <body>
 	<u:navbar changeMemInfo="active" />
 
-	<form action="changeMemInfo.do?id=" method="post">
+	<form action="changeMemInfo.do?id=${cmiReq.userId }" method="post">
 	
 	<h1>회원 정보 변경</h1>
 	<hr />

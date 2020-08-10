@@ -5,6 +5,7 @@ import movie.model.Movie;
 public class MovieData {
 	private Movie movie;
 
+
 	public MovieData(Movie movie) {
 		super();
 		this.movie = movie;

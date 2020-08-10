@@ -22,7 +22,7 @@
 <table border="1" width="100%">
 <tr>
 	<td width="10%">번호</td>
-	<td>${movie.number }</td>
+	<td>${movieData.movie.number }</td>
 </tr>
 <tr>
 	<td>제목</td>
@@ -34,7 +34,7 @@
 </tr>
 <tr>
 	<td>장르</td>
-	<td><c:out value="${movieData.movie.genre }" /> </td>
+	<td><c:out value="${movieData.movie.movieGenre }" /> </td>
 </tr>
 <tr>
 	<td>개봉일</td>

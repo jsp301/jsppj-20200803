@@ -22,7 +22,7 @@ public class ReadMovieHandler implements CommandHandler {
 		try {
 			MovieData movieData = readService.getMovie(movieNum);
 			
-			req.setAttribute("MovieData", movieData);
+			req.setAttribute("movieData", movieData);
 			return "/WEB-INF/view/readMovie.jsp";
 			
 		} catch (MovieNotFoundException e) {

@@ -17,11 +17,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<u:navbar changePwd="active" />
 
 	<div class="jumbotron">
-		<h1 class="display-4">암호를 변경했습니다.</h1>
+		<h1 class="display-4">암호가 변경되었습니다.</h1>
 	</div>
 	
 </body>

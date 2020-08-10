@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -55,6 +55,9 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" />
+	
 	<form action="changePwd.do">
 		<input type="submit" value="암호변경" />
 	</form>

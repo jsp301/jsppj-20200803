@@ -27,8 +27,8 @@
 감독: <br /> <input type="text" name="director" value="${param.director }" />
 </p>
 <p>
-장르: <br /> <input type="text" name="genre" value="${param.genre }" />
-<select name="genre1">
+장르: <br /> 
+<select name="genre">
 	<option value="romance">로맨스/멜로</option>
 	<option value="Sci-fi">SF/판타지</option>
 	<option value="thriller">공포/스릴러</option>
@@ -36,6 +36,7 @@
 	<option value="action">액션</option>
 	<option value="comedy">코미디</option>
 </select>
+<!-- <input type="text" name="genre1" value="${param.genre }" /> -->
 </p>
 <p>
 개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" 

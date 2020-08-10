@@ -1,7 +1,8 @@
-package member.model;
+package member.service;
 
-//Member 저장소
-public class Member {
+import java.util.Map;
+
+public class ChangeMemberInfoRequest {
 	private String userId;
 	private String userpw;
 	private String userName;
@@ -9,28 +10,32 @@ public class Member {
 	private String userEmail;
 	
 	
-	public Member(String userId, String userpw, String userName, String userGender, String userEmail) {
+	
+	public ChangeMemberInfoRequest(String userId, String userpw, String userName, String userGender, String userEmail) {
+		super();
 		this.userId = userId;
 		this.userpw = userpw;
 		this.userName = userName;
 		this.userGender = userGender;
 		this.userEmail = userEmail;
 	}
-	
-	
 
 	public String getUserId() {
 		return userId;
 	}
+
 	public String getUserpw() {
 		return userpw;
 	}
+
 	public String getUserName() {
 		return userName;
 	}
+
 	public String getUserGender() {
 		return userGender;
 	}
+
 	public String getUserEmail() {
 		return userEmail;
 	}
@@ -46,4 +51,9 @@ public class Member {
 		this.userEmail = newEmail;
 	}
 	
+	public void validate(Map<String, Boolean> errors) {
+		if(userName == null || userName.trim().isEmpty()) {
+			errors.put("name", Boolean.TRUE);
+		}
+	}
 }

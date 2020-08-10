@@ -56,7 +56,7 @@
 					<marquee onmouseover="stop();"
 						onmouseout="start();" scrollamount="10" direction="left"
 						bgcolor="gold">
-						<font face="서울꿈" size="5" color="blue"> 영화 소개 </font>
+						<font size="5" color="blue"> <a href="${ctxPath}/message.do">영화 소개</a> </font>
 					</marquee>
 				</td>
 			</tr>

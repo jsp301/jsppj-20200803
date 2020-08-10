@@ -48,11 +48,13 @@ public class WriteMovieHandler implements CommandHandler {
 //				req.getParameter("genre"),
 //				req.getParameter("releaseDate"));
 		
+		// 웹에서 저장한 파일 가져오기
 		Part filePart = req.getPart("file1");
 		String fileName = filePart.getSubmittedFileName();
 		
 		fileName = fileName == null ? "" : fileName;
 		
+		// 에러 체크
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 
@@ -65,14 +67,14 @@ public class WriteMovieHandler implements CommandHandler {
 		if(!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-		
+		//WriteMovieService
 		int newMovieNo = writeService.write(writeReq);
 		
 		
 		if (!(fileName == null 
 				|| fileName.isEmpty() 
 				|| filePart.getSize() == 0 )) {
-			
+			//WriteFileService
 			writeFile.write(filePart, newMovieNo);
 		}
 		
@@ -81,13 +83,14 @@ public class WriteMovieHandler implements CommandHandler {
 		return "/WEB-INF/view/newMovieSuccess.jsp";
 	}
 
+
 	
 	private WriteRequest createWriteRequest(
 			HttpServletRequest req) {
-		
 		return createWriteRequest(req, "");
 	}
 	
+	//웹에서 입력하는 데이터들로 새로운 WriteRequest 생성
 	private WriteRequest createWriteRequest(
 			HttpServletRequest req, String fileName) {
 		

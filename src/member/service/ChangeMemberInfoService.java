@@ -21,11 +21,7 @@ public class ChangeMemberInfoService {
 			if(member == null) {
 				throw new MemberNotFoundException();
 			}
-			//비밀번호 일치 확인 - 사용자 인증
-//			if(!member.matchPassword(curPwd)) {
-//				throw new InvalidPasswordException();
-//			}
-						
+		
 //			member.changePassword(newPwd);
 //			member.changeEmail(newEmail);  //
 			dao.update(conn, member);

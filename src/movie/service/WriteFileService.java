@@ -9,7 +9,7 @@ public class WriteFileService {
 	
 	public void write(Part part, int no) {
 		
-		String path = "c:/tempfiles-netfilx/" + no;
+		String path = "c:/tempfiles-netflix/" + no;
 		File file = new File(path);
 		
 		if(!file.exists()) {

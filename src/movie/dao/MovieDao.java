@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+import java.util.List;
 
 import jdbc.JdbcUtil;
 import movie.model.Movie;
@@ -101,6 +101,49 @@ public class MovieDao {
 	
 	
 	
+	//selectCount 
+	public int selectCount(Connection conn) throws SQLException {
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(
+					"select count(*) from movie");
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+			return 0;
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(stmt);
+		}
+	}
+	
+	//select
+	public List<Movie> select(Connection conn, int startRow, int size)
+	throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(
+					"select * from movie "
+					+ "order by movieId desc limit ?,?");
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, size);
+			rs = pstmt.executeQuery();
+			
+			List<Movie> result = new ArrayList<>();
+			while(rs.next()) {
+				result.add(convertMovie(rs));
+			}
+			return result;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
 	
 	
 }

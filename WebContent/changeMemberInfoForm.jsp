@@ -34,12 +34,12 @@
 	</tr>
 	<tr>
 		<th>이메일 새 주소: <br /></th>
-		<td><input style="background-color: dark-gray" type="email" name="email" placeholder="###@###" /></td>
+		<td><input style="background-color: #cccccc" type="email" name="email" placeholder="###@###" /></td>
 	</tr>
 	<tr>
 		<th>암호: <br /></th>
 		<td>
-		<input type="password" name="curPwd" placeholder="암호를 입력하세요" />
+		<input style="background-color: #cccccc" type="password" name="curPwd" placeholder="암호를 입력하세요" />
 		<c:if test="${errors.curPwd }">현재 암호를 입력하세요.</c:if> 
     	<c:if test="${errors.badCurPwd }">현재 암호가 일치하지 않습니다.</c:if>
     	</td>
@@ -47,7 +47,7 @@
 	<tr>
 		<th>새 암호: <br /></th>
 		<td>
-		<input type="password" name="newPwd" placeholder="새로운 암호를 입력하세요"/>
+		<input style="background-color: #cccccc" type="password" name="newPwd" placeholder="새로운 암호를 입력하세요"/>
 		</td>
 	</tr>
 	</table>

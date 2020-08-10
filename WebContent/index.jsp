@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html>
+<title>NetFlix R</title>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,19 +60,18 @@
 	</c:forEach>
 	</div>
 	
-	<table border="1">
+	
 <%-- 	<c:if test="${mainMovie.hasNoMovies() }">
 			<tr>
 				<td>등록된 영화가 없습니다.</td>
 			</tr>
 		</c:if> 
---%>
 		
-		
-		
-		<!-- <a href="read.do?no=${movie.number }">
-					<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
-			 </a> -->
+		<a href="read.do?no=${movie.number }">
+			<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
+		</a> 
+--%>		
+
 		
 		<c:if test="${mainMoive.hasMovies() }">
 			<tr>

@@ -34,7 +34,7 @@ public class MainMovie {
 //		this.movie = movie;
 		this.content = content;
 		this.currentPage = currentPage;
-		
+		this.total=total;
 		if(total ==0) {
 			totalPages = 0;
 			startPage = 0;

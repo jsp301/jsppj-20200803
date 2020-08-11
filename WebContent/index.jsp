@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 
+
 <!DOCTYPE html>
 <html>
 <title>NetFlix R</title>
@@ -24,7 +25,7 @@
 		alert("암호가 변경되었습니다!");
 	</script>
 </c:if>
-<title>Insert title here</title>
+<title>...</title>
 </head>
 <body>
 	<u:navbar home="active" />
@@ -38,12 +39,12 @@
 			
 			<hr class="my-5">
 			
-			<h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
+			<!-- <h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
 			<a class="lead" href="write.do">새 영화</a> 
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 			<a class="lead" href="">리뷰	작성</a>
 			<hr />
-			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>
+			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a> -->
 		</div>
 	</div>
 
@@ -51,13 +52,55 @@
 
 	<hr />
 	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="gold">
-		<font size="5" color="blue"> <a href="https://www.netflix.com/kr/">영화 소개 </a> </font>
+		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/">영화 소개 </a> </font>
+	</marquee>
+	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="LightYellow">
+	<c:forEach var="movie" items="${mainMovie.content }">
+		<font size="5" color="SlateBlue"> 
+		<a href="${ctxPath }/read.do?no=${movie.number}">${movie.title} </a>  
+	</c:forEach>
 	</marquee>
 
+	<hr />
+	<div class="container" align="center">
+	<c:if test="${mainMovie.hasMovies() }">
+				<c:if test="${mainMovie.startPage > 5}">
+				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
+				</c:if>
+				
+				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
+					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
+				</c:forEach>
+				<c:if test="${mainMovie.endPage < mainMovie.totalPages}">
+					<a href="main.do?pageNo=${mainMovie.startPage + 5}">[다음]</a>
+				</c:if>
+	</c:if>
+	</div>
 	
 	
 	<hr />
-	<div class="container">
+	<div class="container" align="center" >
+	<table>
+
+	<tr>
+	<td>
+		<c:forEach var="movie" items="${mainMovie.content }">
+			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
+			<c:out value="${movie.number }" /> <br />
+			제목: <c:out value="${movie.title }" /> <br />
+			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
+			</button> 
+		</c:forEach>
+	</td>
+	</tr>
+		
+	</table>
+	</div>
+		
+		
+
+	<hr />
+	<div class="container" align="center">
 	<table>
 	
 	<c:if test="${mainMovie.hasNoMovies() }">
@@ -66,24 +109,13 @@
 	</tr>
 	</c:if>
 	
-	<c:forEach var="movie" items="${mainMovie.content }">
-		<tr>
-			<td>
-				<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
-				<c:out value="${movie.number } // " /> 
-				제목: <c:out value="${movie.title }" /> <br />
-				<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
-				</button>
-			</td>
-		</tr>
-	</c:forEach>
-	
 	<c:if test="${mainMovie.hasMovies() }">
 		<tr>
 			<td>
 				<c:if test="${mainMovie.startPage > 5}">
 				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
 				</c:if>
+				
 				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
 					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
 				</c:forEach>
@@ -96,48 +128,6 @@
 		
 	</table>
 	</div>
-	
-	
-	
-	
-
-	<hr />
-	<div class="container" >
-	<table>
-	<tr>
-	<td>
-	<c:forEach var="movie" items="${mainMovie.content }">
-			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
-			<c:out value="${movie.number }" /> <br />
-			제목: <c:out value="${movie.title }" /> <br />
-			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
-			</button> 
-	</c:forEach>
-	</td>
-	</tr>
-
-	
-	<c:if test="${mainMoive.hasMovies() }">
-		<tr>
-			<td >
-				<c:if test="${mainMovie.startPage > 5 }">
-			<a href="main.do?pageNo=${mainMovie.startPage-5 }">[이전]</a>
-			</c:if>
-				
-			<c:forEach var="pNo" begin="${mainMovie.startPage }" end="${mainMovie.endPage }">
-				<a href="main.do?pageNo=${pNo }">[${pNo }]</a>
-			</c:forEach>
-			<c:if test="${movieMain.endPage < movieMain.totalPages }">
-				<a href="main.do?pageNo=${movieMain.startPage + 5 }">[다음]</a>
-			</c:if>
-			</td>
-		</tr>
-	</c:if>
-	</table>
-	</div>
-		
-
-
 	
 	
 	

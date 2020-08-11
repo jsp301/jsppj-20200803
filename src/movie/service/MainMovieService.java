@@ -17,6 +17,7 @@ public class MainMovieService {
 		try(Connection conn = ConnectionProvider.getConnection()) {
 			
 			int total = movieDao.selectCount(conn);
+			
 			List<Movie> content = movieDao.select(
 					conn, (pageNum-1)*size, size);
 			return new MainMovie(total,  pageNum, size, content);

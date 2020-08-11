@@ -87,6 +87,6 @@ public class MainMovie {
 		return total == 0;
 	}
 	public boolean hasMovies() {
-		return total>0;
+		return total > 0;
 	}
 }

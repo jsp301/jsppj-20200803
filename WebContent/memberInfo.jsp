@@ -22,9 +22,11 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+
 </head>
 <body>
 	<u:navbar memberInfo="active" />
+	
 	<table class="table table-striped table-dark">
 		<thead>
 			<tr>

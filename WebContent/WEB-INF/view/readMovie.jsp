@@ -24,12 +24,27 @@
 <title>${Movie.title}게시판</title>
 </head>
 <body>
-<!-- 8.0 -->
+
 	<u:navbar home="active" />
 
 	<table border="1" width="100%">
 		<tr>
-			<td width="10%">번호</td>
+			<td colspan="3"><c:set var="pageNo"
+					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
+				href="${ctxPath }/main.do">[목록]</a> 
+			<!--  
+			<c:if test="${authUser.id == articleData.article.writer.id }">
+			<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
+			<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
+			</c:if>
+			-->
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="6" width="20%"><img
+				src="/imgs/${movieData.movie.number }/${movieData.movie.fileName }"
+				style="width: 300px; height: auto;" /></td>
+			<td width="8%">번호</td>
 			<td>${movieData.movie.number }</td>
 		</tr>
 		<tr>
@@ -61,31 +76,19 @@
 			<td colspan="2"><c:set var="pageNo"
 					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
 				href="${ctxPath }/main.do">[목록]</a> <!--  
-
-
-</tr>
-<tr>
-	<td>내용</td>
-	<td><c:out value="${movieData.movie.story }"/> </td>
-</tr>
-
-<tr>
-	<td colspan="2">
-	<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }" />
-		<a href="${ctxPath }/main.do">[목록]</a>
-		<!--  
-
-		<c:if test="${authUser.id == articleData.article.writer.id }">
-		<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
-		<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
-		</c:if>
-		--></td>
 		</tr>
+
+    <tr>
+			<td>내용</td>
+			<td><c:out value="${movieData.movie.story }" /></td>
+		</tr>
+
+
 	</table>
 
 	<div id="content">
-		<table boeder="1">
-      
+		<table border="0">
+
 			<c:if test="${sessionScope.authUser.id != null }">
 				<form action="message.do" method="post">
 					<input type="hidden" name="movieId"
@@ -96,18 +99,27 @@
 					</td>
 					<td>
 						<div>
-							<input type="number" min="0" max="10" name="score" />
+							<!-- <input type="number" min="0" max="10" name="score"
+								placeholder="점수 선택" /> -->
+							<select name="score">
+								<option value="0">점수 선택</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
 						</div>
 					</td>
 					<td>
 						<div>
-							<input type="text" name="content" />
+							<input type="text" name="content" placeholder="후기를 남겨주세요." />
 						</div>
 					</td>
 
 					<td>
 						<div>
-							<input type="submit" value="NETFLIX" />
+							<input type="submit" value="등록" />
 						</div>
 					</td>
 				</form>

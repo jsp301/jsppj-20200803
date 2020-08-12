@@ -61,7 +61,8 @@ public class MessageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("select * from movie_content where " + "movieId=? "
+			pstmt = conn.prepareStatement("select * from movie_content where " 
+					+ "movieId=? "
 					+ "order by contentId");
 			pstmt.setInt(1, movieId);
 			rs = pstmt.executeQuery();

@@ -48,7 +48,7 @@ public class WriteMessageHandler implements CommandHandler {
 //		System.out.println(score);
 //		System.out.println(content);
 		
-		if(content == null || content.isEmpty()) {
+		if(content == null || sco==null|| content.isEmpty() || sco.isEmpty() ) {
 			session.setAttribute("info", "내용을 꼭 입력하세요");
 		}
 		else {

@@ -27,8 +27,11 @@ public class ReadMovieHandler implements CommandHandler {
 		// no <- MovieDao의  selectById
 		String noVal = req.getParameter("no");
 		int movieNum = Integer.parseInt(noVal);
+		
 		String pageStr = req.getParameter("page");
 		int page =1;
+		
+		
 		try {
 			if(pageStr != null) {
 				page = Integer.valueOf(pageStr);
@@ -37,8 +40,13 @@ public class ReadMovieHandler implements CommandHandler {
 			
 			MessageDao messagedao = MessageDao.getInstance();
 			Message contentList = messagedao.select(conn, movieNum);
+			
 			GetMessageListService service = GetMessageListService.getInstance();
 			MessageListView list = service.getMessageList(page);
+			
+			int score = readService.getScore(movieNum);
+			
+			req.setAttribute("avgscore", score);
 			
 			req.setAttribute("contentList", contentList);
 			req.setAttribute("list", list);

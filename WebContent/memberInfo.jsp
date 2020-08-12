@@ -58,12 +58,15 @@
 		</tbody>
 	</table>
 	
-	<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" />
+	<form action="changeMemInfo.do" method="post">
+	<input type="submit" value="회원정보변경" />
+	</form>
+	<%--<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" /> --%>
 	
-	<form action="changePwd.do">
+	<form action="changePwd.do" method="post">
 		<input type="submit" value="암호변경" />
 	</form>
-	<form action="deleteMember.do">
+	<form action="deleteMember.do" method="post">
 		<input type="submit" value="회원탈퇴" />
 	</form>
 </body>

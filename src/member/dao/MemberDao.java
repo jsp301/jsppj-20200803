@@ -58,7 +58,7 @@ public class MemberDao {
 	
 	public void update1(Connection conn, Member member)throws SQLException {
 		try(PreparedStatement pstmt = conn.prepareStatement(
-				"UPDATE user SET email= ?, userPassword= ? "
+				"UPDATE user SET userEmail= ?, userPassword= ? "
 				+ "where userId=?")) {
 			pstmt.setString(1, member.getUserEmail());
 			pstmt.setString(2, member.getUserpw());

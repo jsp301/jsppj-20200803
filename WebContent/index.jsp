@@ -25,6 +25,12 @@
 		alert("암호가 변경되었습니다!");
 	</script>
 </c:if>
+
+<c:if test="${not empty changeMem }">
+	<script>
+	alert("회원정보가 변경 되었습니다.");
+	</script>
+	</c:if>
 <title>...</title>
 
 <style type="text/css">

@@ -16,6 +16,10 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
+<script>
+
+</script>
 
 <title>${Movie.title}게시판</title>
 </head>
@@ -64,6 +68,17 @@
 
 		</tr>
 		<tr>
+	<	<td>점수</td>
+		<td>${avgscore}</td> 
+		</tr>
+			
+		<tr>
+			<td colspan="2"><c:set var="pageNo"
+					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
+				href="${ctxPath }/main.do">[목록]</a> <!--  
+		</tr>
+
+    <tr>
 			<td>내용</td>
 			<td><c:out value="${movieData.movie.story }" /></td>
 		</tr>

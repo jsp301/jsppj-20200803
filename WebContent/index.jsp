@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 
+
 <!DOCTYPE html>
 <html>
 <title>NetFlix R</title>
@@ -24,7 +25,7 @@
 		alert("암호가 변경되었습니다!");
 	</script>
 </c:if>
-<title>Insert title here</title>
+<title>...</title>
 </head>
 <body>
 	<u:navbar home="active" />
@@ -42,14 +43,19 @@
 			<a class="lead" href="write.do">새 영화</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="lead" href="">리뷰
 				작성</a>
+      
+      
+
 			<hr />
-			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>
+			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a> -->
 		</div>
 	</div>
 
 
 
 	<hr />
+
+
 	<div class="container">
 		<c:forEach var="movie" items="${mainMovie.content }">
 			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
@@ -64,6 +70,127 @@
 
 
 	<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
+
+
+
+	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="gold">
+		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/">영화 소개 </a> </font>
+	</marquee>
+	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="LightYellow">
+	<c:forEach var="movie" items="${mainMovie.content }">
+		<font size="5" color="SlateBlue"> 
+		<a href="${ctxPath }/read.do?no=${movie.number}">${movie.title} </a>  
+	</c:forEach>
+	</marquee>
+
+	<hr />
+	<div class="container" align="center">
+	<c:if test="${mainMovie.hasMovies() }">
+				<c:if test="${mainMovie.startPage > 5}">
+				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
+				</c:if>
+				
+				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
+					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
+				</c:forEach>
+				<c:if test="${mainMovie.endPage < mainMovie.totalPages}">
+					<a href="main.do?pageNo=${mainMovie.startPage + 5}">[다음]</a>
+				</c:if>
+	</c:if>
+	</div>
+	
+	
+	<hr />
+	<div class="container" align="center" >
+	<table>
+
+	<tr>
+	<td>
+		<c:forEach var="movie" items="${mainMovie.content }">
+			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
+			<c:out value="${movie.number }" /> <br />
+			제목: <c:out value="${movie.title }" /> <br />
+			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
+			</button> 
+		</c:forEach>
+	</td>
+	</tr>
+		
+	</table>
+	</div>
+		
+		
+
+	<hr />
+	<div class="container" align="center">
+	<table>
+	
+	<c:if test="${mainMovie.hasNoMovies() }">
+	<tr>
+		<td>등록된 영화가 없습니다.</td>
+	</tr>
+	</c:if>
+	
+	<c:if test="${mainMovie.hasMovies() }">
+		<tr>
+			<td>
+				<c:if test="${mainMovie.startPage > 5}">
+				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
+				</c:if>
+				
+				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
+					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
+				</c:forEach>
+				<c:if test="${mainMovie.endPage < mainMovie.totalPages}">
+					<a href="main.do?pageNo=${mainMovie.startPage + 5}">[다음]</a>
+				</c:if>
+			</td>
+		</tr>
+	</c:if>
+		
+	</table>
+	</div>
+	
+	
+	
+	
+	<hr />
+	<u:footer home="active" />
+<!-- 	<footer class="text-muted" style="background-color:#E6E6FA">
+		<div class="container">
+			
+			<p class="float-right">
+				<a href="#">Back to top</a>
+			</p>
+	
+			<a href="">서비스 이용약관</a> |
+			<a href="">개인정보 처리방침</a>
+			
+			<p></p>
+			고객센터 ㅣ cs@netflix.co.kr <br />
+			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
+			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
+		
+			<p>&copy; 2020, NetFlix.Inc
+				Enjoy your day!</p>
+			<p>
+				New to Movie? <a href="">Visit the
+					homepage</a> or read our <a
+					href="">getting started	guide</a>.
+			</p>
+			<svg preserveAspectRatio="" >
+		</div>
+	</footer> -->
+	
+</body>
+</html>
+
+
+
+
+<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
+
+
 			<tr>
 				<td>등록된 영화가 없습니다.</td>
 			</tr>
@@ -72,6 +199,7 @@
 		<a href="read.do?no=${movie.number }">
 			<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
 		</a> 
+
 --%>
 
 
@@ -90,7 +218,8 @@
 		</c:if>
 	</table>
 
-		<hr />
+
+<hr />
 		<div class="container" >			
 			<button onclick="location='${ctxPath }/read.do'">
 				제목 : [${movieDat.movie.title }] <br />
@@ -130,9 +259,6 @@
 		</div>
 	</div>
 
-
-	
-	
 	 --%>
 
 	<hr />
@@ -166,6 +292,7 @@
 
 
 <%-- 	<h3>액션</h3>
+
 	<hr />
 	<div class="container mt-3">
 		<table border="1" width="100%">

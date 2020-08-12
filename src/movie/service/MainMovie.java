@@ -34,7 +34,7 @@ public class MainMovie {
 //		this.movie = movie;
 		this.content = content;
 		this.currentPage = currentPage;
-		
+		this.total=total;
 		if(total ==0) {
 			totalPages = 0;
 			startPage = 0;
@@ -87,6 +87,6 @@ public class MainMovie {
 		return total == 0;
 	}
 	public boolean hasMovies() {
-		return total>0;
+		return total > 0;
 	}
 }

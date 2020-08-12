@@ -2,8 +2,6 @@ package reply.sevice;
 
 import java.util.List;
 
-
-
 import reply.model.Message;
 
 public class MessageListView {

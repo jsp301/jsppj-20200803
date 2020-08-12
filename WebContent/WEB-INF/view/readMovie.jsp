@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,60 +15,69 @@
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-
-
-
-<script>
+<style type="text/css">
+	body {
+		background-color: black;
+		color: white;
+	}
 	
-</script>
+	#td1 {
+		text-align: center;
+		align-content: center;
+		align-items: center;
+	}
+</style>
 
 <title>${Movie.title}게시판</title>
 </head>
 <body>
 
 	<u:navbar home="active" />
+	
+	<hr color="red" />
 
 	<table border="1" width="100%">
+
 		<tr>
-			<td colspan="3"><c:set var="pageNo"
-					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
-				href="${ctxPath }/main.do">[목록]</a> <!--  
-			<c:if test="${authUser.id == articleData.article.writer.id }">
-			<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
-			<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
-			</c:if>
-			--></td>
-		</tr>
-		<tr>
-			<td rowspan="7" width="20%"><img
-				src="/imgs/${movieData.movie.number }/${movieData.movie.fileName }"
+			<td rowspan="7" width="20%" id="td1">
+				<img src="/imgs/${movieData.movie.number }/${movieData.movie.fileName }"
 				style="width: 300px; height: auto;" /></td>
-			<td width="8%">번호</td>
-			<td>${movieData.movie.number }</td>
+			<td width="8%" id="td1">번호</td>
+			<td id="td1">${movieData.movie.number }</td>
+			<td id="td1">점수</td>
 		</tr>
 		<tr>
-			<td>제목</td>
-			<td><c:out value="${movieData.movie.title }" /></td>
+			<td id="td1">제목</td>
+			<td id="td1"><c:out value=" ${movieData.movie.title }" /></td>
+			<td rowspan="4" id="td1">
+				<c:if test="${avgscore >= 4}">
+					<img src="${ctxPath }/css/apple.png" alt="">
+				</c:if> <c:if test="${avgscore < 4 && avgscore>0}">
+					<img src="${ctxPath }/css/rottenapple.png" alt="">
+				</c:if> <c:if test="${avgscore == 0}">
+					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
+				</c:if>
+			</td>
 		</tr>
 		<tr>
-			<td>감독</td>
-			<td><c:out value="${movieData.movie.director }" /></td>
+			<td id="td1">감독</td>
+			<td id="td1"><c:out value=" ${movieData.movie.director }" /></td>
 		</tr>
 		<tr>
-			<td>장르</td>
-			<td><c:out value="${movieData.movie.movieGenre }" /></td>
+			<td id="td1">장르</td>
+			<td id="td1"><c:out value=" ${movieData.movie.movieGenre }" /></td>
 		</tr>
 		<tr>
-			<td>개봉일</td>
-			<td><c:out value="${movieData.movie.releaseDate }" /></td>
+			<td id="td1">개봉일</td>
+			<td id="td1"><c:out value=" ${movieData.movie.releaseDate }" /></td>
 			<!-- pre-wrap : 작성한데로 화면 출력하게 한다.(script공격으로부터 보호위함) 
 	<td style="white-space: pre-wrap;"> <u:pre value="${articleData.content }" /> </td>
 	<td><u:pre value="${articleData.content }" /></td> -->
 
 		</tr>
-		<tr>
+<%-- 		<tr>
 
-			<td>점수</td>
+			<td id="td1">점수</td>
 			<td><c:if test="${avgscore >= 4}">
 					<img src="${ctxPath }/css/apple.png" alt="">
 				</c:if> <c:if test="${avgscore < 4 && avgscore>0}">
@@ -74,32 +85,34 @@
 				</c:if> <c:if test="${avgscore == 0}">
 					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
 				</c:if></td>
-		</tr>
+		</tr> --%>
 
 		<tr>
-			<td>내용</td>
-			<td><c:out value="${movieData.movie.story }" /></td>
+			<td id="td1">내용</td>
+			<td id="td1" colspan="2"><c:out value=" ${movieData.movie.story }" /></td>
 		</tr>
 	</table>
 
-	<hr color="red" class="my-4" />
+
+
+
+	<hr color="red" class="my-5" />
 
 	<div id="content">
-		<table border="0">
+		<table border="1" style="border-color: red">
 
 			<c:if test="${sessionScope.authUser.id != null }">
 				<form action="message.do" method="post">
 					<input type="hidden" name="movieId"
-						value="${movieData.movie.number }" /> <input type="hidden"
-						name="userId" value="${sessionScope.authUser.id }" />
+						value="${movieData.movie.number }" /> 
+					<input type="hidden" name="userId" 
+						value="${sessionScope.authUser.id }" />
 					<td>
-						<div>${sessionScope.authUser.id }</div>
+						<div style="font-size: 30px"> ${sessionScope.authUser.id } </div>		
 					</td>
+					<td> : </td>
 					<td>
-						<div>
-				
-
-								
+						<div>							
 							<select name="score">
 								<option value="0">점수 선택</option>
 								<option value="1">1</option>

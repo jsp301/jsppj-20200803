@@ -20,7 +20,7 @@
 <title>${Movie.title}게시판</title>
 </head>
 <body>
-
+<!-- 8.0 -->
 	<u:navbar home="active" />
 
 	<table border="1" width="100%">

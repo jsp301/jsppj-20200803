@@ -21,11 +21,12 @@ public class WriteMessageService {
 	
 	public boolean write(Message message) {
 		Connection conn = null;
-		
+
 		try {
 			conn = ConnectionProvider.getConnection();
 			MessageDao messageDao = MessageDao.getInstance();
 			messageDao.insert(conn, message);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

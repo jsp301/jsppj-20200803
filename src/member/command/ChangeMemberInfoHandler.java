@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import auth.service.User;
 import member.service.ChangeMemberInfoRequest;
 import member.service.ChangeMemberInfoService;
+import member.service.InvalidPasswordException;
 import member.service.MemberData;
 import member.service.MemberNotFoundException;
 import member.service.ReadMemberService;
@@ -18,7 +19,7 @@ import mvc.controller.CommandHandler;
 
 public class ChangeMemberInfoHandler implements CommandHandler{
 	
-	private static final String FORM_VIEW = "/WEB-INF/view/changePwdForm.jsp";
+	private static final String FORM_VIEW = "/WEB-INF/view/changeMemberInfoForm.jsp";
 	
 	private ChangeMemberInfoService changeMISerive = new ChangeMemberInfoService();
 	private ReadMemberService readService = new ReadMemberService();
@@ -38,53 +39,41 @@ public class ChangeMemberInfoHandler implements CommandHandler{
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) 
 			throws IOException {
-		try {
-			String id = req.getParameter("Id");
-			MemberData memberData = readService.getMember(id);
-			User authUser = (User) req.getSession().getAttribute("authUser");
-			
-			ChangeMemberInfoRequest cmiReq = new ChangeMemberInfoRequest(
-					authUser.getId(), 
-					memberData.getMember().getUserpw(), 
-					memberData.getMember().getUserName(),
-					memberData.getMember().getUserGender(),
-					memberData.getMember().getUserEmail());
-			req.setAttribute("cmiReq", cmiReq);
-			return FORM_VIEW;
-			
-		} catch (MovieNotFoundException e) {
-			res.sendError(HttpServletResponse.SC_NOT_FOUND);
-			return null;
-		}
+		return FORM_VIEW;
 	}
 	
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) 
 	throws Exception {
 		
-		User authUser = (User) req.getSession().getAttribute("authUser");
-		String id = req.getParameter("id");
-		
-		ChangeMemberInfoRequest cmiReq = new ChangeMemberInfoRequest(
-				authUser.getId(),
-				req.getParameter("pw"),
-				req.getParameter("name"),
-				req.getParameter("gender"),
-				req.getParameter("email"));
-		req.setAttribute("cmiReq", cmiReq);
-				
-		
+		User user = (User) req.getSession().getAttribute("authUser");
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
-		cmiReq.validate(errors);
-		if (!errors.isEmpty()) {
+		
+		String curPwd = req.getParameter("curPwd");
+		String newPwd = req.getParameter("newPwd");
+		String newEmail = req.getParameter("newEmail");
+				
+		if(curPwd == null || curPwd.isEmpty()) {
+			errors.put("curPwd", Boolean.TRUE);
+		}
+		if(newPwd == null || newPwd.isEmpty()) {
+			errors.put("newPwd", Boolean.TRUE);
+		}
+		if(!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
 		
 		try {
-			changeMISerive.changeMemberInfo(cmiReq);
+			changeMISerive.changeMemberInfo(user.getId(),curPwd,newPwd,newEmail);
+			req.setAttribute("changeMem", "changed" );
 			return "/WEB-INF/view/changeMemberInfoSuccess.jsp";
 			
-		} catch (MemberNotFoundException e) {
+		}catch(InvalidPasswordException e) {
+			e.printStackTrace();
+			errors.put("badCurPwd", Boolean.TRUE);
+			return FORM_VIEW;
+		}
+		catch (MemberNotFoundException e) {
 			e.printStackTrace();
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;

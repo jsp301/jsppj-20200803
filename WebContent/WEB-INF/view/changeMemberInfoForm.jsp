@@ -19,22 +19,22 @@
 <body>
 	<u:navbar changeMemInfo="active" />
 
-	<form action="changeMemInfo.do?id=${cmiReq.userId }" method="post">
+	<form action="changeMemInfo.do" method="post">
 	
 	<h1>회원 정보 변경</h1>
 	<hr />
 	<table class="table table-striped table-dark">
 	<tr>
 		<th width="15%">이름: <br /></th>
-		<td>${cmiReq.userName }</td>
+		<td>${sessionScope.authUser.name }</td>
 	</tr>
 	<tr>
 		<th>성별: <br /></th>
-		<td>${cmiReq.userGender }</td>
+		<td>${sessionScope.authUser.gender }</td>
 	</tr>
 	<tr>
 		<th>이메일 새 주소: <br /></th>
-		<td><input style="background-color: #cccccc" type="email" name="email" placeholder="###@###" /></td>
+		<td><input style="background-color: #cccccc" type="email" name="newEmail" placeholder="###@###" /></td>
 	</tr>
 	<tr>
 		<th>암호: <br /></th>

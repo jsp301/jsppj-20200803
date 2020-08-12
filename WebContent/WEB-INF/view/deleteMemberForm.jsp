@@ -27,13 +27,20 @@
 </head>
 <body>
 <u:navbar delete="active" />
+
+<hr color="red" />
+
 <form action="deleteMember.do" method="post">
 암호를 입력하세요 : <br />
 <input type="password" name="curPwd" />
 <c:if test="${errors.badCurPwd }">암호가 일치하지 않습니다.</c:if>
+<br />
 <input type="submit" value ="탈퇴" />
-<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
-
 </form>
+
+<form action="">
+	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
+</form>
+	
 </body>
 </html>

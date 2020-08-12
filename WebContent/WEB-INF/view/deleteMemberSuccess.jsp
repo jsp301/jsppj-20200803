@@ -16,15 +16,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-
+<style type="text/css">
+	body {
+		background-color: black;
+		color: black;
+	}
+</style>
 
 <title>회원 탈퇴 안녕히 가세요</title>
 </head>
 <body>
 <u:navbar delete="active" />
-탈퇴 하였습니다.
+<hr color="red" />
 
-<h1>그동안 NetFlix를 이용해 주셔서 감사합니다.</h1>
+<div class="jumbotron">
+  <h1 class="display-4" style="font-family: Georgia; font-weight: bold;">
+  	탈퇴하였습니다. <br /> 
+  	그 동안 NetFlix를 이용해 주셔서 감사합니다.
+  </h1>
+  
+  <a href="join.do">재가입 신청</a>
+</div>
+
+
+
 
 </body>
 </html>

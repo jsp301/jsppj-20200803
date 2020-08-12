@@ -30,8 +30,18 @@
   <h1 class="display-4" style="font-family: Georgia; font-weight: bold;">환영합니다. <br /> ${param.name }님, 회원 가입에 성공했습니다.</h1>
 </div>
 
+<p> </p>
+<br />
+<br />
+<br />
+<br />
+<p> </p>
+<p> </p>
 <div align="center">
+	<img src="${ctxPath }/css/netflixjoin.jpg" alt="" />
 	<img src="${ctxPath }/css/netflixjoin1.jpg" alt="" />
+	<img src="${ctxPath }/css/netflixjoin2.JPG" alt="" />
+	<img src="${ctxPath }/css/netflixjoin3.JPG" alt="" />
 </div>
 
 </body>

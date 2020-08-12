@@ -34,7 +34,7 @@
 <body>
 	<u:navbar memberInfo="active" />
 	
-	<hr />
+	<hr color="red" />
 	
 	<table class="table table-striped table-dark">
 		<thead>

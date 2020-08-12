@@ -17,9 +17,9 @@
 		<div class="navbar-nav ">
 			<c:if test="${not empty sessionScope.authUser }">
 				<a class="nav-link nav-item ${current.logout }" 
-					href="logout.do" style="color:gray">로그아웃</a>
+					href="logout.do" style="color:white">로그아웃</a>
 				<a class="nav-link nav-item ${current.memberInfo }"
-					href="${ctxPath }/memberInfo.jsp" style="color:gray">회원정보</a>
+					href="${ctxPath }/memberInfo.jsp" style="color:white">회원정보</a>
 				<!-- <a class="nav-link nav-item" 
 					href="message.do" style="color:white">리뷰</a> -->
 				<%-- <a class="nav-link nav-item ${current.changePwd }"
@@ -29,12 +29,12 @@
 			</c:if>
 
 			<c:if test="${empty sessionScope.authUser }">
-				<a class="nav-link nav-item ${current.join }" href="join.do" style="color:gray">회원가입</a>
-				<a class="nav-link nav-item ${current.login }" href="login.do" style="color:gray">로그인</a>
+				<a class="nav-link nav-item ${current.join }" href="join.do" style="color:white">회원가입</a>
+				<a class="nav-link nav-item ${current.login }" href="login.do" style="color:white">로그인</a>
 			</c:if>
 
 			<c:if test="${sessionScope.authUser.id eq 'admin'}">
-				<a class="nav-link nav-item" href="write.do" style="color:gray">영화 등록</a>
+				<a class="nav-link nav-item" href="write.do" style="color:red">영화 등록</a>
 			</c:if>
 						
 		</div>

@@ -47,6 +47,18 @@
 	<td style="white-space: pre-wrap;"> <u:pre value="${articleData.content }" /> </td>
 	<td><u:pre value="${articleData.content }" /></td> -->
 
+		</tr>
+		<tr>
+	<	<td>점수</td>
+		<td>${avgscore}</td> 
+		</tr>
+			
+		<tr>
+			<td colspan="2"><c:set var="pageNo"
+					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
+				href="${ctxPath }/main.do">[목록]</a> <!--  
+
+
 </tr>
 <tr>
 	<td>내용</td>
@@ -58,6 +70,7 @@
 	<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }" />
 		<a href="${ctxPath }/main.do">[목록]</a>
 		<!--  
+
 		<c:if test="${authUser.id == articleData.article.writer.id }">
 		<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
 		<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
@@ -68,7 +81,7 @@
 
 	<div id="content">
 		<table boeder="1">
-			
+      
 			<c:if test="${sessionScope.authUser.id != null }">
 				<form action="message.do" method="post">
 					<input type="hidden" name="movieId"

@@ -33,15 +33,15 @@
 		<div class="jumbotron">
 			<!-- ?? 테이블로 칸 맞춰서 정렬?? -->
 			<!-- <u:pre value="영화           리뷰"/> -->
-			<h1 class="display-4" style="color:red">NetFlix의 모든 것</h1>
+			<h1 class="display-4" style="color: red">NetFlix의 모든 것</h1>
 			<h2>다양한 영화, tv프로그램 정보를 만나보세요.</h2>
-			
+
 			<hr class="my-5">
-			
+
 			<h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
-			<a class="lead" href="write.do">새 영화</a> 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<a class="lead" href="">리뷰	작성</a>
+			<a class="lead" href="write.do">새 영화</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="lead" href="">리뷰
+				작성</a>
 			<hr />
 			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a>
 		</div>
@@ -50,18 +50,20 @@
 
 
 	<hr />
-	<div class="container" >
-	<c:forEach var="movie" items="${mainMovie.content }">
+	<div class="container">
+		<c:forEach var="movie" items="${mainMovie.content }">
 			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
-			<c:out value="${movie.number }" /> <br />
-			제목: <c:out value="${movie.title }" /> <br />
-			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
-			</button> 
-	</c:forEach>
+				<c:out value="${movie.number }" />
+				<br /> 제목:
+				<c:out value="${movie.title }" />
+				<br /> <img src="/imgs/${movie.number }/${movie.fileName }"
+					style="width: 345px; height: auto;" />
+			</button>
+		</c:forEach>
 	</div>
-	
-	
-<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
+
+
+	<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
 			<tr>
 				<td>등록된 영화가 없습니다.</td>
 			</tr>
@@ -70,10 +72,10 @@
 		<a href="read.do?no=${movie.number }">
 			<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
 		</a> 
---%>		
+--%>
 
-		
-		<c:if test="${mainMoive.hasMovies() }">
+
+	<%-- <c:if test="${mainMoive.hasMovies() }">
 			<tr>
 				<c:if test="${mainMovie.startPage>5 }">
 				<a href="main.do?pageNo=${mainMovie.startPage-5 }">[이전]</a>
@@ -131,32 +133,29 @@
 
 	
 	
-	
-	
+	 --%>
+
 	<hr />
-	<footer class="text-muted" style="background-color:#E6E6FA">
+	<footer class="text-muted" style="background-color: #E6E6FA">
 		<div class="container">
-			
+
 			<p class="float-right">
 				<a href="#">Back to top</a>
 			</p>
-	
-			<a href="">서비스 이용약관</a> |
-			<a href="">개인정보 처리방침</a>
-			
+
+			<a href="">서비스 이용약관</a> | <a href="">개인정보 처리방침</a>
+
 			<p></p>
-			고객센터 ㅣ cs@netflix.co.kr <br />
-			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
-			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
-		
-			<p>&copy; 2020, NetFlix.Inc
-				Enjoy your day!</p>
+			고객센터 ㅣ cs@netflix.co.kr <br /> 제휴 및 대외 협력 | contact@netflix.com,
+			02-1234-1234 <br /> 넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호
+
+			<p>&copy; 2020, NetFlix.Inc Enjoy your day!</p>
 			<p>
-				New to Movie? <a href="">Visit the
-					homepage</a> or read our <a
-					href="">getting started	guide</a>.
+				New to Movie? <a href="">Visit the homepage</a> or read our <a
+					href="">getting started guide</a>.
 			</p>
-			<svg preserveAspectRatio="" >
+			<svg preserveAspectRatio="">
+		
 		</div>
 	</footer>
 </body>

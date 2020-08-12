@@ -22,7 +22,7 @@ public class GetMessageListService {
 		
 	}
 	
-	private static final int MESSAGE_COUNT_PER_PAGE = 10;
+	private static final int MESSAGE_COUNT_PER_PAGE = 5;
 	
 	public MessageListView getMessageList(int pageNumber) {
 		Connection conn = null;

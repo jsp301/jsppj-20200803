@@ -27,13 +27,14 @@ public class MovieDao {
 			pstmt = conn.prepareStatement(
 					"INSERT INTO movie "
 					+ "(movieTitle, director,"
-					+ " movieGenre, releaseDate, file_name)"
-					+ "values (?,?,?,?,?)"); 
+					+ " movieGenre, releaseDate, file_name, story)"
+					+ "values (?,?,?,?,?,?)"); 
 			pstmt.setString(1, movie.getTitle());
 			pstmt.setString(2, movie.getDirector());
 			pstmt.setString(3, movie.getMovieGenre());
 			pstmt.setString(4, movie.getReleaseDate());
-			pstmt.setString(5, movie.getFileName());
+			pstmt.setString(5, movie.getStory());
+			pstmt.setString(6, movie.getFileName());
 						
 			int insertedCount = pstmt.executeUpdate();
 			
@@ -49,7 +50,8 @@ public class MovieDao {
 							movie.getDirector(),
 							movie.getMovieGenre(),
 							movie.getReleaseDate(),
-							movie.getFileName()
+							movie.getFileName(),
+							movie.getStory()
 							);
 				}
 			}
@@ -70,7 +72,8 @@ public class MovieDao {
 				rs.getString("director"),
 				rs.getString("movieGenre"),
 				rs.getString("releaseDate"),
-				rs.getString("file_name")
+				rs.getString("file_name"),
+				rs.getString("story")
 				);
 	}
 	

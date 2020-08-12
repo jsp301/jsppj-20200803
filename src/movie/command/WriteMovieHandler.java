@@ -100,6 +100,7 @@ public class WriteMovieHandler implements CommandHandler {
 				req.getParameter("director"), 
 				req.getParameter("genre"),
 				req.getParameter("releaseDate"),
+				req.getParameter("story"),
 				fileName);		
 	}
 	

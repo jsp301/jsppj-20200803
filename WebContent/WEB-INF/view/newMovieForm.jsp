@@ -24,7 +24,7 @@
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
 </p>
 <p>
-감독: <br /> <input type="text" name="director" value="${param.director }" />
+감독: <br /> <input type="text" name="director" value="${param.director }" placeholder="크리스토퍼 놀란" />
 </p>
 <p>
 장르: <br /> 
@@ -41,6 +41,10 @@
 <p>
 개봉일: <br /> <input type="text" name="releaseDate" value="${param.releaseDate }" 
 placeholder="2020-##-##형식 입력" />
+</p>
+
+<p>
+내용: <br /> <textarea name="story" cols="" rows="6"> 내용을 입력하세요. </textarea>
 </p>
 
 <p>

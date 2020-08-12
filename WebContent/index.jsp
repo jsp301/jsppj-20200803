@@ -26,26 +26,29 @@
 	</script>
 </c:if>
 <title>...</title>
+
+<style type="text/css">
+	body { background-color: black;}
+</style>
+
 </head>
 <body>
 	<u:navbar home="active" />
+
 
 	<div class="container mt-3">
 		<div class="jumbotron">
 			<!-- ?? 테이블로 칸 맞춰서 정렬?? -->
 			<!-- <u:pre value="영화           리뷰"/> -->
-			<h1 class="display-4" style="color: red">NetFlix의 모든 것</h1>
+			<h1 class="display-4" style="color:red">NetFlix의 모든 것</h1>
 			<h2>다양한 영화, tv프로그램 정보를 만나보세요.</h2>
-
+			
 			<hr class="my-5">
-
-			<h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
-			<a class="lead" href="write.do">새 영화</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a class="lead" href="">리뷰
-				작성</a>
-      
-      
-
+			
+			<!-- <h1 class="display-5">영화&nbsp;&nbsp;&nbsp;리뷰</h1>
+			<a class="lead" href="write.do">새 영화</a> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<a class="lead" href="">리뷰	작성</a>
 			<hr />
 			<a class="btn btn-primary btn-lg" href="join.do" role="button">회원가입</a> -->
 		</div>
@@ -53,134 +56,52 @@
 
 
 
-	<hr />
-
-
-	<div class="container">
-		<c:forEach var="movie" items="${mainMovie.content }">
-			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
-				<c:out value="${movie.number }" />
-				<br /> 제목:
-				<c:out value="${movie.title }" />
-				<br /> <img src="/imgs/${movie.number }/${movie.fileName }"
-					style="width: 345px; height: auto;" />
-			</button>
-		</c:forEach>
-	</div>
-
-
-	<%-- 	<c:if test="${mainMovie.hasNoMovies() }">
-
-
-
+<!-- 	<hr color="red"/> -->
 	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="gold">
-		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/">영화 소개 </a> </font>
+		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/" style="color: black">영화 소개 </a> </font>
 	</marquee>
-	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="LightYellow">
+	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="red">
 	<c:forEach var="movie" items="${mainMovie.content }">
-		<font size="5" color="SlateBlue"> 
-		<a href="${ctxPath }/read.do?no=${movie.number}">${movie.title} </a>  
+		<font size="5"> 
+		<a href="${ctxPath }/read.do?no=${movie.number}" style="color: black">${movie.title} </a>  
 	</c:forEach>
 	</marquee>
 
+
+
 	<hr />
-	<div class="container" align="center">
-	<c:if test="${mainMovie.hasMovies() }">
-				<c:if test="${mainMovie.startPage > 5}">
-				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
-				</c:if>
-				
-				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
-					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
-				</c:forEach>
-				<c:if test="${mainMovie.endPage < mainMovie.totalPages}">
-					<a href="main.do?pageNo=${mainMovie.startPage + 5}">[다음]</a>
-				</c:if>
-	</c:if>
-	</div>
+	<u:pageNoCon />
 	
+
 	
 	<hr />
 	<div class="container" align="center" >
 	<table>
-
-	<tr>
-	<td>
+		<tr>
+		<td>
 		<c:forEach var="movie" items="${mainMovie.content }">
-			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'">
-			<c:out value="${movie.number }" /> <br />
-			제목: <c:out value="${movie.title }" /> <br />
+			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'" style="background-color: red">
+			<c:out value="No.${movie.number }" /> <br />
+			<c:out value="제목: ${movie.title }" /> <br />
 			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
 			</button> 
 		</c:forEach>
-	</td>
-	</tr>
-		
+		</td>
+		</tr>
 	</table>
 	</div>
 		
 		
 
 	<hr />
-	<div class="container" align="center">
-	<table>
-	
-	<c:if test="${mainMovie.hasNoMovies() }">
-	<tr>
-		<td>등록된 영화가 없습니다.</td>
-	</tr>
-	</c:if>
-	
-	<c:if test="${mainMovie.hasMovies() }">
-		<tr>
-			<td>
-				<c:if test="${mainMovie.startPage > 5}">
-				<a href="main.do?pageNo=${mainMovie.startPage - 5}">[이전]</a>
-				</c:if>
-				
-				<c:forEach var="pNo" begin="${mainMovie.startPage}" end="${mainMovie.endPage }">
-					<a href="main.do?pageNo=${pNo}">[${pNo}]</a> 
-				</c:forEach>
-				<c:if test="${mainMovie.endPage < mainMovie.totalPages}">
-					<a href="main.do?pageNo=${mainMovie.startPage + 5}">[다음]</a>
-				</c:if>
-			</td>
-		</tr>
-	</c:if>
+	<u:pageNoCon />
+
+
 		
-	</table>
-	</div>
-	
-	
-	
-	
-	<hr />
+	<hr color="red"/>
 	<u:footer home="active" />
-<!-- 	<footer class="text-muted" style="background-color:#E6E6FA">
-		<div class="container">
-			
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-	
-			<a href="">서비스 이용약관</a> |
-			<a href="">개인정보 처리방침</a>
-			
-			<p></p>
-			고객센터 ㅣ cs@netflix.co.kr <br />
-			제휴 및 대외 협력 | contact@netflix.com, 02-1234-1234 <br />
-			넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호 
-		
-			<p>&copy; 2020, NetFlix.Inc
-				Enjoy your day!</p>
-			<p>
-				New to Movie? <a href="">Visit the
-					homepage</a> or read our <a
-					href="">getting started	guide</a>.
-			</p>
-			<svg preserveAspectRatio="" >
-		</div>
-	</footer> -->
+
+
 	
 </body>
 </html>
@@ -189,8 +110,6 @@
 
 
 <%-- 	<c:if test="${mainMovie.hasNoMovies() }">
-
-
 			<tr>
 				<td>등록된 영화가 없습니다.</td>
 			</tr>
@@ -199,25 +118,6 @@
 		<a href="read.do?no=${movie.number }">
 			<c:out value="/imgs/${movie.number}/${movie.fileName }"></c:out>
 		</a> 
-
---%>
-
-
-	<%-- <c:if test="${mainMoive.hasMovies() }">
-			<tr>
-				<c:if test="${mainMovie.startPage>5 }">
-				<a href="main.do?pageNo=${mainMovie.startPage-5 }">[이전]</a>
-				</c:if>
-				<c:forEach var="pNo" begin="${mainMovie.startPage }" end="${mainMovie.endPage }">
-					<a href="list.do?pageNo=${pNo }">[${pNo }]</a>
-				</c:forEach>
-				<c:if test="${movieMain.endPage < movieMain.totalPages }">
-					<a href="list.do?pageNo=${movieMain.startPage + 5 }">[다음]</a>
-				</c:if>
-			</tr>
-		</c:if>
-	</table>
-
 
 <hr />
 		<div class="container" >			
@@ -259,40 +159,7 @@
 		</div>
 	</div>
 
-	 --%>
-
-	<hr />
-	<footer class="text-muted" style="background-color: #E6E6FA">
-		<div class="container">
-
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-
-			<a href="">서비스 이용약관</a> | <a href="">개인정보 처리방침</a>
-
-			<p></p>
-			고객센터 ㅣ cs@netflix.co.kr <br /> 제휴 및 대외 협력 | contact@netflix.com,
-			02-1234-1234 <br /> 넷플릭스서비시스코리아 유한회사 통신판매업신고번호 | 제2018-서울종로-0426호
-
-			<p>&copy; 2020, NetFlix.Inc Enjoy your day!</p>
-			<p>
-				New to Movie? <a href="">Visit the homepage</a> or read our <a
-					href="">getting started guide</a>.
-			</p>
-			<svg preserveAspectRatio="">
-		
-		</div>
-	</footer>
-</body>
-</html>
-
-
-
-
-
-<%-- 	<h3>액션</h3>
-
+	<h3>액션</h3>
 	<hr />
 	<div class="container mt-3">
 		<table border="1" width="100%">

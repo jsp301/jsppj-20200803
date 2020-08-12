@@ -143,14 +143,14 @@ public class MessageDao {
 
 	
 	
-	/*public int delete(Connection conn, int contentId) throws SQLException {
+	public int delete(Connection conn, int contentId) throws SQLException {
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = conn.prepareStatement("delete from movie_content where content_id =?");
+			pstmt = conn.prepareStatement("delete from movie_content where contentId =?");
 			pstmt.setInt(1, contentId);
 			return pstmt.executeUpdate();
 		} finally {
 			JdbcUtil.close(pstmt);
 		}
-	}*/
+	}
 }

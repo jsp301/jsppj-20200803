@@ -67,15 +67,14 @@
 		<tr>
 
 			<td>점수</td>
-			<td><c:if test="${avgscore >= 3}">
+			<td><c:if test="${avgscore >= 4}">
 					<img src="${ctxPath }/css/apple.png" alt="">
-				</c:if> <c:if test="${avgscore < 3 && avgscore>0}">
+				</c:if> <c:if test="${avgscore < 4 && avgscore>0}">
 					<img src="${ctxPath }/css/rottenapple.png" alt="">
 				</c:if> <c:if test="${avgscore == 0}">
 					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
 				</c:if></td>
 		</tr>
-
 
 		<tr>
 			<td>내용</td>
@@ -138,7 +137,13 @@
 
 							<h5 class="mt-0">${message.uId }</h5>
 							SCORE : ${message.score } REVIEW : ${message.content }
-
+				<c:if test="${sessionScope.authUser.id eq message.uId }">
+					<form action="deletereply.do" method="post">
+						<input type="hidden" value="${message.contentId }" name="contentId" />
+						<input type="hidden" value="${movieData.movie.number }" name="movieId" />
+						<input type="submit" value="삭제" />
+					</form>
+				</c:if>
 						</div>
 					</div>
 				</c:if>

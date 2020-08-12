@@ -4,9 +4,9 @@ package reply.model;
 
 
 public class Message {
-	private Integer contentId; //댓글 번호
-	private int movId; //영화 number
-	private String uId; //user Id
+	private Integer contentId; 	//댓글 번호
+	private int movId;			//영화 number
+	private String uId;			//user Id
 	private int score;
 	private String content;
 	

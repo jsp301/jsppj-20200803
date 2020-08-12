@@ -28,19 +28,36 @@
 <title>...</title>
 
 <style type="text/css">
-	body { background-color: black;}
+	body { background-color: black;}	
 </style>
 
 </head>
 <body>
 	<u:navbar home="active" />
 
-
+	<hr color="red" />
 	<div class="container mt-3">
-		<div class="jumbotron">
-			<!-- ?? 테이블로 칸 맞춰서 정렬?? -->
-			<!-- <u:pre value="영화           리뷰"/> -->
-			<h1 class="display-4" style="color:red">NetFlix의 모든 것</h1>
+		<div class="jumbotron" style="background-color: #737373">
+
+			<table border="0">
+				<tr>
+					<td rowspan="2">
+					<h1 class="display-3" 
+					style="font-weight: bold; color: red; font-size: 110px; " >
+					NetFlix
+					</h1>
+					</td>
+					<td> &nbsp; </td>
+				</tr>
+				<tr>
+					<td> 
+					<h1 class="display-3" 
+					style="font-weight: bold; color: black; font-size: 60px; font-family: Impact;" align="" >
+					 의 모든 것
+					</h1>
+					</td>
+				</tr>
+			</table>
 			<h2>다양한 영화, tv프로그램 정보를 만나보세요.</h2>
 			
 			<hr class="my-5">
@@ -56,14 +73,13 @@
 
 
 
-<!-- 	<hr color="red"/> -->
 	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="gold">
 		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/" style="color: black">영화 소개 </a> </font>
 	</marquee>
 	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="red">
 	<c:forEach var="movie" items="${mainMovie.content }">
 		<font size="5"> 
-		<a href="${ctxPath }/read.do?no=${movie.number}" style="color: black">${movie.title} </a>  
+		<a href="${ctxPath }/read.do?no=${movie.number}" style="color: black"> // ${movie.title} //  </a>  
 	</c:forEach>
 	</marquee>
 
@@ -75,14 +91,19 @@
 
 	
 	<hr />
-	<div class="container" align="center" >
+	<div class="container" align="center">
 	<table>
 		<tr>
 		<td>
 		<c:forEach var="movie" items="${mainMovie.content }">
-			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'" style="background-color: red">
-			<c:out value="No.${movie.number }" /> <br />
-			<c:out value="제목: ${movie.title }" /> <br />
+			<button onclick="location='${ctxPath }/read.do?no=${movie.number}'" 
+				style="background-color: black; border-color:red; outline-color: red;">
+			<p style="color: white">
+			No.${movie.number } <br />
+			제목: ${movie.title }
+			</p>
+			<%-- <c:out value="No.${movie.number }" /> <br />
+			<c:out value="제목: ${movie.title }" /> <br /> --%>
 			<img src="/imgs/${movie.number }/${movie.fileName }" style="width: 345px; height: auto;" />
 			</button> 
 		</c:forEach>
@@ -107,7 +128,7 @@
 </html>
 
 
-
+<!-- --------------------------------------------------------------------------------------- -->
 
 <%-- 	<c:if test="${mainMovie.hasNoMovies() }">
 			<tr>

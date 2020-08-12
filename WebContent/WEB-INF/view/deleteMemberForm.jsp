@@ -16,6 +16,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body {
+		background-color: black;
+		color: white;
+	}
+</style>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -25,6 +32,8 @@
 <input type="password" name="curPwd" />
 <c:if test="${errors.badCurPwd }">암호가 일치하지 않습니다.</c:if>
 <input type="submit" value ="탈퇴" />
+<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
+
 </form>
 </body>
 </html>

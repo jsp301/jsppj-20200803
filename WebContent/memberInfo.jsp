@@ -23,9 +23,18 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
+<style type="text/css">
+	body {
+		background-color: black;
+		color: white; 
+	}
+</style>
+
 </head>
 <body>
 	<u:navbar memberInfo="active" />
+	
+	<hr />
 	
 	<table class="table table-striped table-dark">
 		<thead>
@@ -63,9 +72,9 @@
 	</form>
 	<%--<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" /> --%>
 	
-	<form action="changePwd.do" method="post">
+<!-- 	<form action="changePwd.do" method="post">
 		<input type="submit" value="암호변경" />
-	</form>
+	</form> -->
 	<form action="deleteMember.do" method="post">
 		<input type="submit" value="회원탈퇴" />
 	</form>

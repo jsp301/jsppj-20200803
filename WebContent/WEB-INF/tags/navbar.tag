@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-black mb-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black mb-3">
 	<a class="navbar-brand" href="${ctxPath }/main.do">
 	<img src="${ctxPath }/css/netflixjpg.jpg" alt="" />
 	</a>
@@ -17,11 +17,11 @@
 		<div class="navbar-nav ">
 			<c:if test="${not empty sessionScope.authUser }">
 				<a class="nav-link nav-item ${current.logout }" 
-					href="logout.do" style="color:white">로그아웃</a>
+					href="logout.do" style="color:gray">로그아웃</a>
 				<a class="nav-link nav-item ${current.memberInfo }"
-					href="${ctxPath }/memberInfo.jsp" style="color:white">회원정보</a>
-				<a class="nav-link nav-item" 
-					href="message.do" style="color:white">리뷰</a>
+					href="${ctxPath }/memberInfo.jsp" style="color:gray">회원정보</a>
+				<!-- <a class="nav-link nav-item" 
+					href="message.do" style="color:white">리뷰</a> -->
 				<%-- <a class="nav-link nav-item ${current.changePwd }"
 					href="changePwd.do">암호변경</a>
 				<a class="nav-link nav-item ${current.deleteMember }"
@@ -29,12 +29,12 @@
 			</c:if>
 
 			<c:if test="${empty sessionScope.authUser }">
-				<a class="nav-link nav-item ${current.join }" href="join.do" style="color:white">회원가입</a>
-				<a class="nav-link nav-item ${current.login }" href="login.do" style="color:white">로그인</a>
+				<a class="nav-link nav-item ${current.join }" href="join.do" style="color:gray">회원가입</a>
+				<a class="nav-link nav-item ${current.login }" href="login.do" style="color:gray">로그인</a>
 			</c:if>
 
 			<c:if test="${sessionScope.authUser.id eq 'admin'}">
-				<a class="nav-link nav-item" href="write.do" style="color:white">영화 등록</a>
+				<a class="nav-link nav-item" href="write.do" style="color:gray">영화 등록</a>
 			</c:if>
 						
 		</div>

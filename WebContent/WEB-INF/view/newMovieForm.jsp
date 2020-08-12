@@ -14,17 +14,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body { 
+		background-color: black;
+		color: white;
+	}
+</style>
+
 <title>Movie add</title>
 </head>
 <body>
 
+<u:navbar home="active" />
+
+<hr color="red" />
+
+<div class="container">
 <form action="write.do" method="post" enctype="multipart/form-data">
+<p> * </p>
 <p>
-제목: <br /> <input type="text" name="title" value="${param.title }" />
+제목: <br /> <input type="text" name="title" value="${param.title }" placeholder="ex)테넷" />
 <c:if test="${errors.title }">제목을 입력하세요</c:if>
 </p>
 <p>
-감독: <br /> <input type="text" name="director" value="${param.director }" placeholder="크리스토퍼 놀란" />
+감독: <br /> <input type="text" name="director" value="${param.director }" placeholder="ex)크리스토퍼 놀란" />
 </p>
 <p>
 장르: <br /> 
@@ -44,7 +57,7 @@ placeholder="2020-##-##형식 입력" />
 </p>
 
 <p>
-내용: <br /> <textarea name="story" cols="" rows="6"> 내용을 입력하세요. </textarea>
+내용: <br /> <textarea name="story" cols="30" rows="7" placeholder="내용을 입력하세요"></textarea>
 </p>
 
 <p>
@@ -57,7 +70,7 @@ placeholder="2020-##-##형식 입력" />
 <input type="submit" value="새 영화 등록" />
 <input type="button" onclick="location='${ctxPath}/main.do'" value="취소" />
 </form>
-
+</div>
 
 
 

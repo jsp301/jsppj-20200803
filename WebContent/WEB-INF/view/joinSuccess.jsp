@@ -26,6 +26,8 @@
 <body>
 <u:navbar join="active" />
 
+<hr color="red" />
+
 <div class="jumbotron">
   <h1 class="display-4" style="font-family: Georgia; font-weight: bold;">환영합니다. <br /> ${param.name }님, 회원 가입에 성공했습니다.</h1>
 </div>

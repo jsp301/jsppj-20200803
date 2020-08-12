@@ -14,16 +14,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body {
+		background-color: black;
+		color: black;
+	}
+</style>
+
 <title>영화 등록 성공</title>
 </head>
 <body>
 <u:navbar home="active" />
 
-<h2>영화가 등록 되었습니다.</h2>
+<hr color="red"/>
 
-<hr class="my-5" >
+<div class="jumbotron">
+  <h1 class="display-4" style="font-family: Georgia; font-weight: bold;">영화가 등록 되었습니다.</h1>
+  <hr class="my-5" >
 <a href="${ctxPath }/main.do">[Movie List]</a>
 <a href="write.do">[Movie add]</a>
+</div>
+
+
+
 
 </body>
 </html>

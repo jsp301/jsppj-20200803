@@ -13,6 +13,9 @@
 <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+
+
+
 <script>
 	
 </script>
@@ -62,8 +65,21 @@
 
 		</tr>
 		<tr>
+
 			<td>점수</td>
-			<td>${avgscore}</td>
+			<td><c:if test="${avgscore >= 3}">
+					<img src="${ctxPath }/css/apple.png" alt="">
+				</c:if> <c:if test="${avgscore < 3 && avgscore>0}">
+					<img src="${ctxPath }/css/rottenapple.png" alt="">
+				</c:if> <c:if test="${avgscore == 0}">
+					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
+				</c:if></td>
+		</tr>
+
+		<tr>
+			<td colspan="2"><c:set var="pageNo"
+					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
+				href="${ctxPath }/main.do">[목록]</a> <!--  
 		</tr>
 
 
@@ -88,8 +104,9 @@
 					</td>
 					<td>
 						<div>
-							<!-- <input type="number" min="0" max="10" name="score"
-								placeholder="점수 선택" /> -->
+				
+
+								
 							<select name="score">
 								<option value="0">점수 선택</option>
 								<option value="1">1</option>
@@ -113,8 +130,9 @@
 					</div>
 				</td>
 				</form>
+
 			</c:if>
-		</table>
+	</table>
 	</div>
 	<div class="container">
 		<div class="container my-3  shadow p-3">

@@ -16,9 +16,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	
-<script>
 
+<script>
+	
 </script>
 
 <title>${Movie.title}게시판</title>
@@ -31,14 +31,12 @@
 		<tr>
 			<td colspan="3"><c:set var="pageNo"
 					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
-				href="${ctxPath }/main.do">[목록]</a> 
-			<!--  
+				href="${ctxPath }/main.do">[목록]</a> <!--  
 			<c:if test="${authUser.id == articleData.article.writer.id }">
 			<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
 			<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
 			</c:if>
-			-->
-			</td>
+			--></td>
 		</tr>
 		<tr>
 			<td rowspan="6" width="20%"><img
@@ -68,10 +66,17 @@
 
 		</tr>
 		<tr>
-	<	<td>점수</td>
-		<td>${avgscore}</td> 
+			<
+			<td>점수</td>
+			<td><c:if test="${avgscore >= 3}">
+					<img src="${ctxPath }/css/apple.png" alt="">
+				</c:if> <c:if test="${avgscore < 3 && avgscore>0}">
+					<img src="${ctxPath }/css/rottenapple.png" alt="">
+				</c:if> <c:if test="${avgscore == 0}">
+					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
+				</c:if></td>
 		</tr>
-			
+
 		<tr>
 			<td colspan="2"><c:set var="pageNo"
 					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
@@ -100,31 +105,29 @@
 					<td>
 						<div>
 							<!-- <input type="number" min="0" max="10" name="score"
-								placeholder="점수 선택" /> -->
-							<select name="score">
-								<option value="0">점수 선택</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</div>
-					</td>
-					<td>
-						<div>
-							<input type="text" name="content" placeholder="후기를 남겨주세요." />
-						</div>
-					</td>
+								placeholder="점수 선택" /> --> <select name="score">
+					<option value="0">점수 선택</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+			</select>
+				</div></td>
+			<td>
+				<div>
+					<input type="text" name="content" placeholder="후기를 남겨주세요." />
+				</div>
+			</td>
 
-					<td>
-						<div>
-							<input type="submit" value="등록" />
-						</div>
-					</td>
-				</form>
+			<td>
+				<div>
+					<input type="submit" value="등록" />
+				</div>
+			</td>
+			</form>
 			</c:if>
-		</table>
+	</table>
 	</div>
 	<div class="container">
 		<div class="container my-3  shadow p-3">

@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import auth.service.LoginService;
 import auth.service.User;
 import member.service.ChangeMemberInfoRequest;
 import member.service.ChangeMemberInfoService;
@@ -23,7 +24,9 @@ public class ChangeMemberInfoHandler implements CommandHandler{
 	
 	private ChangeMemberInfoService changeMISerive = new ChangeMemberInfoService();
 	private ReadMemberService readService = new ReadMemberService();
-		
+	private LoginService loginService = new LoginService();
+	
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) 
 			throws Exception {
@@ -65,8 +68,9 @@ public class ChangeMemberInfoHandler implements CommandHandler{
 		
 		try {
 			changeMISerive.changeMemberInfo(user.getId(),curPwd,newPwd,newEmail);
-			req.setAttribute("changeMem", "changed" );
-			return "/WEB-INF/view/changeMemberInfoSuccess.jsp";
+			req.setAttribute("changeMem", "changed");
+			req.setAttribute("newEmail", newEmail);
+			return "/memberInfo.jsp";
 			
 		}catch(InvalidPasswordException e) {
 			e.printStackTrace();

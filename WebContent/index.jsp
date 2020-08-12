@@ -20,17 +20,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<c:if test="${not empty abcdefg}">
-	<script>
-		alert("암호가 변경되었습니다!");
-	</script>
-</c:if>
 
-<c:if test="${not empty changeMem }">
-	<script>
-	alert("회원정보가 변경 되었습니다.");
-	</script>
-	</c:if>
+
 <title>...</title>
 
 <style type="text/css">

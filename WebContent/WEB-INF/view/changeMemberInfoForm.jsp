@@ -26,6 +26,8 @@
 <body>
 	<u:navbar changeMemInfo="active" />
 
+	<hr color="red" />
+
 	<form action="changeMemInfo.do" method="post">
 	
 	<h1>회원 정보 변경</h1>
@@ -59,12 +61,12 @@
 	</tr>
 	</table>
 	<input type="submit" value="변경신청" />
-
-	<button onclick="location='${ctxPath }/memberInfo.jsp'" >취소</button>
-	
-	
-
 	</form>
+	
+	<form action="">
+	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
+	</form>
+
 </body>
 </html>
 

@@ -76,12 +76,6 @@
 				</c:if></td>
 		</tr>
 
-		<tr>
-			<td colspan="2"><c:set var="pageNo"
-					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
-				href="${ctxPath }/main.do">[목록]</a> <!--  
-		</tr>
-
 
 		<tr>
 			<td>내용</td>

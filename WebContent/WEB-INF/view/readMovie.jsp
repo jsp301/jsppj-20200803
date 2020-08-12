@@ -44,6 +44,11 @@
 	<td><u:pre value="${articleData.content }" /></td> -->
 </tr>
 <tr>
+	<td>내용</td>
+	<td><c:out value="${movieData.movie.story }"/> </td>
+</tr>
+
+<tr>
 	<td colspan="2">
 	<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }" />
 		<a href="${ctxPath }/main.do">[목록]</a>

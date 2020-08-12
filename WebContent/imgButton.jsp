@@ -22,22 +22,27 @@
 	<hr />
 	<div class="container">
 		<button onclick="location='${ctxPath }/read.do'">
+			제목: ${"오케이마담" } <br />
 			<img src="/imgs/5/오케이 마담.jpg" style="width: 320px; height: auto;" />
 		</button>
 
 		<button onclick="location='${ctxPath }/read.do'">
+			제목: ${"키싱부스2" } <br />
 			<img src="/imgs/2/kissing booth2.jpg" style="width: 320px; height: auto;" />
 		</button>	
 		
 		<button onclick="location='${ctxPath }/read.do'">
+			제목: ${"강철비2" } <br />
 			<img src="/imgs/4/강철비2.jpg" style="width: 320px; height: auto;" />
 		</button>	
 		
 		<button onclick="location='${ctxPath }/read.do'">
+			제목: ${"반도" } <br />
 			<img src="/imgs/3/반도.jpg" style="width: 320px; height: auto;" />
 		</button>	
 		
 		<button onclick="location='${ctxPath }/read.do'">
+			제목: ${"어바웃타임" } <br />
 			<img src="/imgs/25/어바웃 타임.jpg" style="width: 320px; height: auto;" />
 		</button>	
 		
@@ -53,7 +58,7 @@
 						onmouseout="start();" scrollamount="10" direction="left"
 						bgcolor="gold">
 						<font size="5" color="blue"> <a
-							href="${ctxPath}/message.do">영화 소개</a>
+							href="main.do">영화 소개</a>
 						</font>
 					</marquee></td>
 			</tr>

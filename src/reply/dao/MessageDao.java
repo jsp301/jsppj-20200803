@@ -124,7 +124,24 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	
+	public int avgScore(Connection conn, int movieId)throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement("select AVG(score) from movie_content "
+					+ "where movieId=?");
+			pstmt.setInt(1, movieId);
+			rs=pstmt.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		}finally {
+			JdbcUtil.close(rs, pstmt);
+		}
+	}
 
+	
+	
 	/*public int delete(Connection conn, int contentId) throws SQLException {
 		PreparedStatement pstmt = null;
 		try {

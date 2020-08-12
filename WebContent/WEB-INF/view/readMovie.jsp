@@ -48,6 +48,11 @@
 	<td><u:pre value="${articleData.content }" /></td> -->
 		</tr>
 		<tr>
+	<	<td>점수</td>
+		<td>${avgscore}</td> 
+		</tr>
+			
+		<tr>
 			<td colspan="2"><c:set var="pageNo"
 					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
 				href="${ctxPath }/main.do">[목록]</a> <!--  
@@ -61,23 +66,6 @@
 
 	<div id="content">
 		<table boeder="1">
-			<%-- <c:if test="${requestScope.contentList!=null }">
-				<c:forEach var="message" items="${requestScope.contentList }">
-					<tr>
-						<td width="150">
-							<div>
-								ID :${sessionScope.authUser.id } <br />
-							</div>
-						</td>
-						<td>
-							<div>점수 : ${message.score }</div>
-						</td>
-						<td width="450">
-							<div class="text_wrapper">CONTENT : ${message.content }</div>
-						</td>
-					</tr>
-				</c:forEach>
-			 </c:if>   --%>
 
 			<c:if test="${sessionScope.authUser.id != null }">
 				<form action="message.do" method="post">

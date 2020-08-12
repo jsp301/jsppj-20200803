@@ -14,11 +14,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body {
+		background-color: black;
+		color: white;
+	}
+</style>
+
 <title>회원 정보 수정</title>
 </head>
 <body>
 	<u:navbar changeMemInfo="active" />
- 
+
 	<form action="changeMemInfo.do" method="post">
 	
 	<h1>회원 정보 변경</h1>
@@ -52,7 +59,8 @@
 	</tr>
 	</table>
 	<input type="submit" value="변경신청" />
-		<input type="button" value="취소" onclick="location='${ctxPath }/index.jsp'" />
+
+	<button onclick="location='${ctxPath }/memberInfo.jsp'" >취소</button>
 	
 	
 

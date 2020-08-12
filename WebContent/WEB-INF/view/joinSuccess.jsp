@@ -14,13 +14,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<title>Insert title here</title>
+<style type="text/css">
+	body {
+		background-color: black;
+		color: black;
+	}
+</style>
+
+<title>회원 가입 성공</title>
 </head>
 <body>
 <u:navbar join="active" />
 
 <div class="jumbotron">
-  <h1 class="display-4">${param.name }님, 회원 가입에 성공했습니다.</h1>
+  <h1 class="display-4" style="font-family: Georgia; font-weight: bold;">환영합니다. <br /> ${param.name }님, 회원 가입에 성공했습니다.</h1>
 </div>
+
+<div align="center">
+	<img src="${ctxPath }/css/netflixjoin1.jpg" alt="" />
+</div>
+
 </body>
 </html>

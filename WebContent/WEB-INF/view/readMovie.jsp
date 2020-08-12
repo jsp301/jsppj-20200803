@@ -7,15 +7,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
 
 <script>
 	
@@ -39,7 +38,7 @@
 			--></td>
 		</tr>
 		<tr>
-			<td rowspan="6" width="20%"><img
+			<td rowspan="7" width="20%"><img
 				src="/imgs/${movieData.movie.number }/${movieData.movie.fileName }"
 				style="width: 300px; height: auto;" /></td>
 			<td width="8%">번호</td>
@@ -66,7 +65,7 @@
 
 		</tr>
 		<tr>
-			<
+
 			<td>점수</td>
 			<td><c:if test="${avgscore >= 3}">
 					<img src="${ctxPath }/css/apple.png" alt="">
@@ -83,13 +82,14 @@
 				href="${ctxPath }/main.do">[목록]</a> <!--  
 		</tr>
 
-    <tr>
+
+		<tr>
 			<td>내용</td>
 			<td><c:out value="${movieData.movie.story }" /></td>
 		</tr>
-
-
 	</table>
+
+	<hr color="red" class="my-4" />
 
 	<div id="content">
 		<table border="0">
@@ -104,28 +104,33 @@
 					</td>
 					<td>
 						<div>
-							<!-- <input type="number" min="0" max="10" name="score"
-								placeholder="점수 선택" /> --> <select name="score">
-					<option value="0">점수 선택</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-			</select>
-				</div></td>
-			<td>
-				<div>
-					<input type="text" name="content" placeholder="후기를 남겨주세요." />
-				</div>
-			</td>
+				
 
-			<td>
-				<div>
-					<input type="submit" value="등록" />
-				</div>
-			</td>
-			</form>
+								
+							<select name="score">
+								<option value="0">점수 선택</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+							</select>
+						</div>
+					</td>
+				<td>
+					<div>
+						<input type="text" name="content" placeholder="후기를 남겨주세요." />
+					</div>
+				</td>
+
+				<td>
+					<div>
+						<input type="submit" value="등록" />
+					</div>
+				</td>
+				</form>
+
 			</c:if>
 	</table>
 	</div>

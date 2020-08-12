@@ -18,7 +18,7 @@
 </head>
 <body>
 	<u:navbar changeMemInfo="active" />
-
+ 
 	<form action="changeMemInfo.do" method="post">
 	
 	<h1>회원 정보 변경</h1>

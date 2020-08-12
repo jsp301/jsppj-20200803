@@ -52,8 +52,13 @@
 			</tr>
 			<tr>
 				<th scope="row">4</th>
-				<td>이메일</td>
+				<td>이메일 </td>
+				<c:if test="${not empty changeMem}" >
+				<td><c:out value="${newEmail}" /></td>
+				</c:if> 
+				<c:if test="${empty changeMem }" >
 				<td>${sessionScope.authUser.email }</td>
+				</c:if>
 			</tr>
 		</tbody>
 	</table>

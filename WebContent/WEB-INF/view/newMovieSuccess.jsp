@@ -22,7 +22,7 @@
 <h2>영화가 등록 되었습니다.</h2>
 
 <hr class="my-5" >
-<a href="${ctxPath }/index.jsp">[Movie List]</a>
+<a href="${ctxPath }/main.do">[Movie List]</a>
 <a href="write.do">[Movie add]</a>
 
 </body>

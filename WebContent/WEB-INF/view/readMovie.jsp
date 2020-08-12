@@ -46,11 +46,18 @@
 			<!-- pre-wrap : 작성한데로 화면 출력하게 한다.(script공격으로부터 보호위함) 
 	<td style="white-space: pre-wrap;"> <u:pre value="${articleData.content }" /> </td>
 	<td><u:pre value="${articleData.content }" /></td> -->
-		</tr>
-		<tr>
-			<td colspan="2"><c:set var="pageNo"
-					value="${empty param.pageNo ? '1' : param.pageNo }" /> <a
-				href="${ctxPath }/main.do">[목록]</a> <!--  
+
+</tr>
+<tr>
+	<td>내용</td>
+	<td><c:out value="${movieData.movie.story }"/> </td>
+</tr>
+
+<tr>
+	<td colspan="2">
+	<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo }" />
+		<a href="${ctxPath }/main.do">[목록]</a>
+		<!--  
 		<c:if test="${authUser.id == articleData.article.writer.id }">
 		<a href="modify.do?no=${movieData.movie.number }">[게시글 수정]</a>
 		<a href="delete.do?no=${movieData.movie.number }">[게시글 삭제]</a>		
@@ -61,24 +68,7 @@
 
 	<div id="content">
 		<table boeder="1">
-			<%-- <c:if test="${requestScope.contentList!=null }">
-				<c:forEach var="message" items="${requestScope.contentList }">
-					<tr>
-						<td width="150">
-							<div>
-								ID :${sessionScope.authUser.id } <br />
-							</div>
-						</td>
-						<td>
-							<div>점수 : ${message.score }</div>
-						</td>
-						<td width="450">
-							<div class="text_wrapper">CONTENT : ${message.content }</div>
-						</td>
-					</tr>
-				</c:forEach>
-			 </c:if>   --%>
-
+			
 			<c:if test="${sessionScope.authUser.id != null }">
 				<form action="message.do" method="post">
 					<input type="hidden" name="movieId"

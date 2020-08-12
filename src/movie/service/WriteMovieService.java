@@ -63,7 +63,7 @@ public class WriteMovieService {
 	
 	private Movie toMovie(WriteRequest req) {		
 		return new Movie(null, req.getTitle(), req.getDirector(), 
-				req.getGenre(), req.getReleaseDate(), req.getFileName());
+				req.getGenre(), req.getReleaseDate(), req.getFileName(), req.getStory());
 	}
 
 

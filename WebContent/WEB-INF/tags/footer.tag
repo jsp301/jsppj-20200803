@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<footer class="text-muted" style="background-color: #E6E6FA">
+<footer class="text-muted" style="background-color: black">
 	<div class="container">
 
 		<p class="float-right">
-			<a href="#">Back to top</a>
+			<a href="#" style="color: gold">Back to top</a>
 		</p>
 
 		<a href="">서비스 이용약관</a> | <a href="">개인정보 처리방침</a>

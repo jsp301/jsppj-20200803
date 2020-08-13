@@ -60,11 +60,11 @@
 		</td>
 	</tr>
 	</table>
-	<input type="submit" value="변경신청" />
+	<input type="submit" value="변경신청" class="btn btn-danger"/>
 	</form>
 	
 	<form action="">
-	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
+	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" class="btn btn-danger"/>
 	</form>
 
 </body>

@@ -71,6 +71,7 @@ public class ChangeMemberInfoHandler implements CommandHandler{
 			req.setAttribute("changeMem", "changed");
 			req.setAttribute("newEmail", newEmail);
 			return "/memberInfo.jsp";
+			/*return "/WEB-INF/view/changeMemberInfoSuccess.jsp";*/
 			
 		}catch(InvalidPasswordException e) {
 			e.printStackTrace();

@@ -35,11 +35,11 @@
 <input type="password" name="curPwd" />
 <c:if test="${errors.badCurPwd }">암호가 일치하지 않습니다.</c:if>
 <br />
-<input type="submit" value ="탈퇴" />
+<input type="submit" value ="탈퇴" class="btn btn-danger"/>
 </form>
 
 <form action="">
-	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" />
+	<input type="button" value="취소" onclick="location='${ctxPath }/memberInfo.jsp'" class="btn btn-danger"/>
 </form>
 	
 </body>

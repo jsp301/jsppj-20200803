@@ -57,6 +57,15 @@
 				</c:if> <c:if test="${avgscore == 0}">
 					<c:out value="리뷰가 입력되지 않았습니다."></c:out>
 				</c:if>
+				
+				<div class="container" style="width: 500px">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-danger" role="progressbar" 
+					style="width: ${avgscore/6*100}%"
+					aria-valuenow="${avgscore}" aria-valuemin="0" aria-valuemax="6"></div>
+				</div>
+				</div>
+					
 			</td>
 		</tr>
 		<tr>
@@ -98,48 +107,55 @@
 
 	<hr color="red" class="my-5" />
 
-	<div id="content">
-		<table border="1" style="border-color: red">
-
-			<c:if test="${sessionScope.authUser.id != null }">
-				<form action="message.do" method="post">
-					<input type="hidden" name="movieId"
-						value="${movieData.movie.number }" /> 
-					<input type="hidden" name="userId" 
-						value="${sessionScope.authUser.id }" />
-					<td>
-						<div style="font-size: 30px"> ${sessionScope.authUser.id } </div>		
-					</td>
-					<td> : </td>
-					<td>
-						<div>							
-							<select name="score">
-								<option value="0">점수 선택</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-							</select>
-						</div>
-					</td>
-				<td>
-					<div>
-						<input type="text" name="content" placeholder="후기를 남겨주세요." />
-					</div>
-				</td>
-
-				<td>
-					<div>
-						<input type="submit" value="등록" />
-					</div>
-				</td>
-				</form>
-
-			</c:if>
-	</table>
+	<div id="content" class="input-group mb-3">
+		<div class="input-group-prepend">
+			<table border="" style="color: white; border-color: black; background-color: black; border-radius: 10px;">
+				<c:if test="${sessionScope.authUser.id != null }">
+					<form action="message.do" method="post">
+						<input type="hidden" name="movieId"	value="${movieData.movie.number }" /> 
+						<input type="hidden" name="userId" value="${sessionScope.authUser.id }" />
+							
+							<td>
+							<div style="font-size: 20px" class="btn btn-outline-secondary">
+								${sessionScope.authUser.id }</div>
+							</td>
+							
+							<td> : </td>
+						
+							<td>
+								<select name="score" class="btn btn-danger dropdown-toggle">
+									<option value="0">점수 선택</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+								</select>
+							</td>
+						
+							<td>
+								<input type="text" class="form-control" name="content" placeholder="후기를 남겨주세요." />
+							</td>
+						
+							<td>
+								<input type="submit" value="등록" class="btn btn-outline-secondary" />
+							</td>
+					</form>
+				</c:if>
+			</table>
+		</div>
 	</div>
+
+
+
+
+
+
+
+
+
+
 	<div class="container">
 		<div class="container my-3  shadow p-3">
 

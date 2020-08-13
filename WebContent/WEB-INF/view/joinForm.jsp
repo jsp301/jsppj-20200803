@@ -23,6 +23,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+<script>
+	$(document).ready(function(){
+		$("#admin1").hide();
+		$("#showAd").click(function(){
+			$("#admin1").show();
+		});
+		
+	});
+</script>
+	  
 <title>회원 가입 신청</title>
 </head>
 <body>
@@ -36,7 +46,9 @@
     <i class="fas fa-user"></i>
     <select name="JoinSelect" id="select1">
     	<option name="JoinSelect" value="Customer">Customer</option>
+    	<c:if test="${adminPass eq '1234' }">
     	<option name="JoinSelect" value="Administrator">Administrator</option>
+    	</c:if>
     </select>
   </div>
   
@@ -77,8 +89,16 @@
 
   <input type="submit" class="btn" value="Sign in">
   <input class="btn btn-warning" type="button" value="취소" onclick="history.go(-1)" />
+  <button id ="showAd">N</button>
 </div>
 
 </form>
+
+<div id="admin1">
+<form action="admin.do" method="post">
+<input type="password" name="password2" />
+<input type="submit" value="Admin"/>
+</form>
+</div>
 </body>
 </html>

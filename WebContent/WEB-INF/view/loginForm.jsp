@@ -25,6 +25,16 @@
   <h1>Login</h1>
   <div class="textbox">
     <i class="fas fa-user"></i>
+    <select name="LoginSelect" id="select1">
+    	<option name="LoginSelect" value="Customer">Customer</option>
+    	<option name="LoginSelect" value="Administrator">Administrator</option>
+    </select>
+  </div>
+  
+  
+  
+  <div class="textbox">
+    <i class="fas fa-user"></i>
     <input type="text" placeholder="Username" id = "input1" name = "id" value="${param.id }">
     <small
      class="form-text text-muted"> <c:if test="${errors.id }">ID를 입력하세요.</c:if>

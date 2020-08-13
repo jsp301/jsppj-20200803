@@ -10,7 +10,7 @@ import member.model.Member;
 public class LoginService {
 	private MemberDao memberDao = new MemberDao();
 
-	public User login(String id, String password) {
+	public User login(String select, String id, String password) {
 		try (Connection conn = ConnectionProvider
 				.getConnection()) {
 			Member member = memberDao.selectById(conn, id);
@@ -22,8 +22,10 @@ public class LoginService {
 			if (!member.matchPassword(password)) {
 				throw new LoginFailException();
 			}
-			
-			return new User(member.getUserId(), member.getUserName(),member.getUserGender(),member.getUserEmail());
+			if(!member.matchSelect(select)) {
+				throw new LoginFailException();
+			}
+			return new User(member.getUserSelect(), member.getUserId(), member.getUserName(),member.getUserGender(),member.getUserEmail());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

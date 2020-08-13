@@ -32,6 +32,7 @@ public class JoinHandler implements CommandHandler {
 			HttpServletResponse res) {
 		
 		JoinRequest joinReq = new JoinRequest();
+		joinReq.setSelect(req.getParameter("JoinSelect"));
 		joinReq.setId(req.getParameter("id"));
 		joinReq.setName(req.getParameter("name"));
 		joinReq.setPassword(req.getParameter("password"));

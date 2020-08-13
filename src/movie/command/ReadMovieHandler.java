@@ -42,7 +42,7 @@ public class ReadMovieHandler implements CommandHandler {
 			Message contentList = messagedao.select(conn, movieNum);
 			
 			GetMessageListService service = GetMessageListService.getInstance();
-			MessageListView list = service.getMessageList(page);
+			MessageListView list = service.getMessageList(page, movieNum);
 			
 			int score = readService.getScore(movieNum);
 			

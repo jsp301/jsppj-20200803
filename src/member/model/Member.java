@@ -2,6 +2,7 @@ package member.model;
 
 //Member 저장소
 public class Member {
+	private String userSelect;
 	private String userId;
 	private String userpw;
 	private String userName;
@@ -9,7 +10,8 @@ public class Member {
 	private String userEmail;
 	
 	
-	public Member(String userId, String userpw, String userName, String userGender, String userEmail) {
+	public Member(String userSelect, String userId, String userpw, String userName, String userGender, String userEmail) {
+		this.userSelect = userSelect;
 		this.userId = userId;
 		this.userpw = userpw;
 		this.userName = userName;
@@ -17,7 +19,17 @@ public class Member {
 		this.userEmail = userEmail;
 	}
 	
-	
+	public String getUserSelect() {
+		return userSelect;
+	}
+
+
+	public void setUserSelect(String userSelect) {
+		this.userSelect = userSelect;
+	}
+
+
+
 
 	public String getUserId() {
 		return userId;
@@ -44,6 +56,10 @@ public class Member {
 	}
 	public void changeEmail(String newEmail) {
 		this.userEmail = newEmail;
+	}
+
+	public boolean matchSelect(String slt) {
+		return userSelect.equals(slt);
 	}
 	
 }

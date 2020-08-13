@@ -32,6 +32,14 @@
 <form action="join.do" method="post">
 	<div class="login-box">
   <h1>Join</h1>
+<div class="textbox">
+    <i class="fas fa-user"></i>
+    <select name="JoinSelect" id="select1">
+    	<option name="JoinSelect" value="Customer">Customer</option>
+    	<option name="JoinSelect" value="Administrator">Administrator</option>
+    </select>
+  </div>
+  
   <div class="textbox">
     <i class="fas fa-user"></i>
     <input type="text" placeholder="UserID" id = "input1" name = "id" value="${param.id }">
@@ -70,6 +78,7 @@
   <input type="submit" class="btn" value="Sign in">
   <input class="btn btn-warning" type="button" value="취소" onclick="history.go(-1)" />
 </div>
+
 </form>
 </body>
 </html>

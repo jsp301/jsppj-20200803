@@ -21,6 +21,7 @@ public class MemberDao {
 			Member member = null;
 			if(rs.next()) {
 				member = new Member(
+						rs.getString("userSelect"),
 						rs.getString("userId"),
 						rs.getString("userPassword"),
 						rs.getString("userName"),
@@ -37,12 +38,13 @@ public class MemberDao {
 	
 	public void insert(Connection conn, Member mem) throws SQLException {
 		try(PreparedStatement pstmt =
-				conn.prepareStatement("insert into user value(?,?,?,?,?)")) {
-			pstmt.setString(1, mem.getUserId());
-			pstmt.setString(2, mem.getUserpw());
-			pstmt.setString(3, mem.getUserName());
-			pstmt.setString(4, mem.getUserGender());
-			pstmt.setString(5, mem.getUserEmail());
+				conn.prepareStatement("insert into user value(?,?,?,?,?,?)")) {
+			pstmt.setString(1, mem.getUserSelect());
+			pstmt.setString(2, mem.getUserId());
+			pstmt.setString(3, mem.getUserpw());
+			pstmt.setString(4, mem.getUserName());
+			pstmt.setString(5, mem.getUserGender());
+			pstmt.setString(6, mem.getUserEmail());
 			pstmt.executeUpdate();
 		}
 	}

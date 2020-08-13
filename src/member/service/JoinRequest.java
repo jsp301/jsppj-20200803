@@ -3,13 +3,21 @@ package member.service;
 import java.util.Map;
 
 public class JoinRequest {
-
+	private String select;
 	private String id;
 	private String name;
 	private String password;
 	private String confirmPassword;
 	private String email;
 	private String gender;
+	
+	
+	public String getSelect() {
+		return select;
+	}
+	public void setSelect(String select) {
+		this.select = select;
+	}
 	public String getId() {
 		return id;
 	}

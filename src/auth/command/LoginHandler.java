@@ -31,7 +31,7 @@ public class LoginHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req,
 			HttpServletResponse res) throws Exception {
-
+		String select = req.getParameter("LoginSelect");
 		String id = trim(req.getParameter("id"));
 		String password = trim(req.getParameter("password"));
 		
@@ -51,12 +51,12 @@ public class LoginHandler implements CommandHandler {
 		}
 		
 		try {
-			User user = loginService.login(id, password);
+			User user = loginService.login(select, id, password);
 			req.getSession().setAttribute("authUser", user);
 			res.sendRedirect(req.getContextPath() + "/main.do");
 			return null;
 		} catch (LoginFailException e) {
-			errors.put("idOrPwNotMatch",  true);
+			errors.put("selectOridOrPwNotMatch",  true);
 			return FORM_VIEW;
 		}
 	}

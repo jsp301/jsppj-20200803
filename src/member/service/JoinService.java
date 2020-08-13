@@ -26,6 +26,7 @@ public class JoinService {
 			}
 
 			memberDao.insert(conn, new Member(
+					joinReq.getSelect(),
 					joinReq.getId(),
 					joinReq.getPassword(),
 					joinReq.getName(),

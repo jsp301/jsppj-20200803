@@ -33,7 +33,7 @@
 				<a class="nav-link nav-item ${current.login }" href="login.do" style="color:white">로그인</a>
 			</c:if>
 
-			<c:if test="${sessionScope.authUser.id eq 'admin'}">
+			<c:if test="${sessionScope.authUser.select eq 'Administrator'}">
 				<a class="nav-link nav-item" href="write.do" style="color:red">영화 등록</a>
 			</c:if>
 						

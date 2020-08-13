@@ -59,24 +59,19 @@
 	  <label>내용:</label>
 	  <textarea name="story" class="form-control"  rows="3" placeholder="내용을 입력하세요"></textarea>
 	</div>
-	
-	<div class="custom-file">
-	  <label>파일:</label>
-	  <input name="file1" accept="image/*" type="file" class="custom-file-input" id="CustomFile"/>
-	  <label class="custom-file-label" for="CustomFile">사진 선택...</label>
+	<hr color="red"/>
+	<div class="form-group">
+	  <label>사진 등록:</label>
+	  <input type="file" name="file1" accept="image/*"/>
 	</div>
-<!-- <p>
-파일: <br />
-<input type="file" name="file1" accept="image/*"/>
-</p> -->
 
 	<hr color="red"/>
-<input type="submit" value="새 영화 등록" />
-<input type="button" onclick="location='${ctxPath}/main.do'" value="취소" />
+	<div align="center">
+	<input type="submit" value="새 영화 등록" class="btn btn-danger" />
+	<input type="button" onclick="location='${ctxPath}/main.do'" value="취소" class="btn btn-danger" />
+	</div>
 </form>
 </div>
-
-
 
 </body>
 </html>

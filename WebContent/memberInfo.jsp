@@ -72,8 +72,9 @@
 		</tbody>
 	</table>
 	
+	
 	<form action="changeMemInfo.do" method="post">
-	<input type="submit" value="회원정보변경" />
+	<input type="submit" value="회원정보변경" class="btn btn-danger"/>
 	</form>
 	<%--<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" /> --%>
 	
@@ -81,7 +82,8 @@
 		<input type="submit" value="암호변경" />
 	</form> -->
 	<form action="deleteMember.do" method="post">
-		<input type="submit" value="회원탈퇴" />
+		<input type="submit" value="회원탈퇴" class="btn btn-danger"/>
 	</form>
+	
 </body>
 </html>

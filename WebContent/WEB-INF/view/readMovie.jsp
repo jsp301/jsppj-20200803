@@ -166,6 +166,7 @@
 
 							<h5 class="mt-0">${message.uId }</h5>
 							SCORE : ${message.score } REVIEW : ${message.content }
+				<div style="float: right;">
 				<c:if test="${sessionScope.authUser.id eq message.uId }">
 					<form action="deletereply.do" method="post">
 						<input type="hidden" value="${message.contentId }" name="contentId" />
@@ -173,6 +174,7 @@
 						<input type="submit" value="삭제" />
 					</form>
 				</c:if>
+				</div>
 						</div>
 					</div>
 				</c:if>

@@ -24,7 +24,7 @@ public class GetMessageListService {
 	
 	private static final int MESSAGE_COUNT_PER_PAGE = 5;
 	
-	public MessageListView getMessageList(int pageNumber) {
+	public MessageListView getMessageList(int pageNumber, int movieId) {
 		Connection conn = null;
 		
 		int currentPageNumber = pageNumber;
@@ -33,7 +33,7 @@ public class GetMessageListService {
 			conn = ConnectionProvider.getConnection();
 			MessageDao messageDao = MessageDao.getInstance();
 			
-			int messageTotalCount = messageDao.selectCount(conn);
+			int messageTotalCount = messageDao.selectCount(conn, movieId);
 			
 			List<Message> messageList = null;
 			

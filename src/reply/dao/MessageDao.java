@@ -88,17 +88,18 @@ public class MessageDao {
 		return message;
 	}
 
-	public int selectCount(Connection conn) throws SQLException {
-		Statement stmt = null;
+	public int selectCount(Connection conn, int movieId) throws SQLException {
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select count(*) from movie_content");
+			pstmt = conn.prepareStatement("select count(*) from movie_content where movieId=?");
+			pstmt.setInt(1, movieId);
+			rs = pstmt.executeQuery();
 			rs.next();
 			return rs.getInt(1);
 		} finally {
 			JdbcUtil.close(rs);
-			JdbcUtil.close(stmt);
+			JdbcUtil.close(pstmt);
 		}
 	}
 

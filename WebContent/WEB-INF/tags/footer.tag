@@ -10,7 +10,7 @@
 			<a href="#" style="color: gold">Back to top</a>
 		</p>
 
-		<a href="">서비스 이용약관</a> | <a href="">개인정보 처리방침</a>
+		<a href="https://help.netflix.com/ko/legal/termsofuse">서비스 이용약관</a> | <a href="https://help.netflix.com/ko/legal/privacy">개인정보 처리방침</a>
 
 		<p></p>
 		고객센터 ㅣ cs@netflix.co.kr <br /> 제휴 및 대외 협력 | contact@netflix.com,
@@ -18,8 +18,8 @@
 
 		<p>&copy; 2020, NetFlix.Inc Enjoy your day!</p>
 		<p>
-			New to Movie? <a href="">Visit the homepage</a> or read our <a
-				href="">getting started guide</a>.
+			New to Movie? <a href="https://www.netflix.com/kr/">Visit the homepage</a> or read our <a
+				href="https://help.netflix.com/ko">getting started guide</a>.
 		</p>
 		<svg preserveAspectRatio="">
 		

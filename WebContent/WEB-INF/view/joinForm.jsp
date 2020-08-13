@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -19,9 +20,21 @@
 	body {
 		background-color: black;
 		color: white;
-		background-image: url("${ctxPath }/css/netflixCrown.jpg") no-repeat;
+/* 		background-image: url("${ctxPath }/css/netflixCrown.jpg") no-repeat; */
 }
 </style>
+
+
+<script>
+	$(document).ready(function(){
+		$("#admin1").hide();
+		$("#showAd").click(function(){
+			$("#admin1").show();
+		});
+		
+	});
+</script>
+	  
 
 <title>회원 가입 신청</title>
 </head>
@@ -36,6 +49,7 @@
 			<tr>
 			<td width="40%" align="left">
 
+
 	<form action="join.do" method="post">	
 		<div class="login-box">
 			<h1 style="border-bottom: 6px solid red;">Join</h1>
@@ -44,9 +58,13 @@
 				<i class="fas fa-user-cog"></i>
 				<select name="JoinSelect" id="select1" class="form-control">
 					<option name="JoinSelect" value="Customer">Customer</option>
+          <c:if test="${adminPass eq '1234' }">
 					<option name="JoinSelect" value="Administrator">Administrator</option>
+          </c:if>  
 				</select>
-			</div>
+      </div>  
+
+
 
 			<div class="form-group">
 				<i class="fas fa-user"></i> 
@@ -68,6 +86,7 @@
 				<label class="btn btn-secondary"> 
 				<input type="radio"	name="gender" id="option2" value="male">Male</label>
 			</div>
+        
 			<div class="form-group">
 				<i class="fa fa-envelope"></i> 
 				<input type="text" class="form-control"	placeholder="UserEmail" id="input2" name="email" value="${param.email }">
@@ -86,6 +105,7 @@
 
 			<input type="submit" value="Sign in" class="btn btn-danger">
 			<input	class="btn btn-danger" type="button" value="취소" onclick="history.go(-1)" />
+      <button id ="showAd">N</button>
 		</div>
 	</form>
 			
@@ -99,6 +119,13 @@
 	
 	<hr color="red" />
 	
-	
+
+<div id="admin1">
+<form action="admin.do" method="post">
+<input type="password" name="password2" />
+<input type="submit" value="Admin"/>
+</form>
+</div>
+
 </body>
 </html>

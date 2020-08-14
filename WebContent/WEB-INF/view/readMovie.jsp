@@ -171,7 +171,7 @@
 					<form action="deletereply.do" method="post">
 						<input type="hidden" value="${message.contentId }" name="contentId" />
 						<input type="hidden" value="${movieData.movie.number }" name="movieId" />
-						<input type="submit" value="삭제" />
+						<button><i class="fas fa-trash-alt"></i></button>
 					</form>
 				</c:if>
 				</div>

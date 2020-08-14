@@ -35,6 +35,7 @@
 
 			<c:if test="${sessionScope.authUser.select eq 'Administrator'}">
 				<a class="nav-link nav-item" href="write.do" style="color:red">영화 등록</a>
+				<a class="nav-link nav-item" href="totalMember.do" style="color:red">MEMBER</a>
 			</c:if>
 		</div>
 		

@@ -25,12 +25,12 @@
 <title>...</title>
 
 <style type="text/css">
-	body { background-color: black;}	
+	body { background-color: black; color: white;}	
 </style>
 
 </head>
 <body>
-	<u:navbar/>
+	<u:navbar home="active"/>
 
 	<hr color="red" />
 	<div class="container mt-3">

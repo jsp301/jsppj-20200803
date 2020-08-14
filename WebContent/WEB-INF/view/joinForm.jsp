@@ -58,14 +58,28 @@ body {
 						<div class="login-box">
 							<h1 style="border-bottom: 6px solid red;">Join</h1>
 
-							<div class="form-group">
-								<i class="fas fa-user-cog"></i> <select name="JoinSelect"
-									id="select1" class="form-control">
+							<%-- <div class="form-group">
+								<i class="fas fa-user-cog"></i> 
+								<select name="JoinSelect" id="select1" class="form-control">
 									<option name="JoinSelect" value="Customer">Customer</option>
 									<c:if test="${adminPass eq '1234' }">
 										<option name="JoinSelect" value="Administrator">Administrator</option>
 									</c:if>
 								</select>
+							</div> --%>
+
+
+							<div class="form-group">
+								<i class="fas fa-user-cog"></i>
+								<div class="form-group btn-group btn-group-toggle"	data-toggle="buttons">
+									<label for="JoinSelect"></label> 
+									<label class="btn btn-secondary active"> 
+									<input type="radio"	name="JoinSelect" id="option1" value="Customer" checked>Customer</label> 
+									<c:if test="${adminPass eq '1234' }">
+									<label class="btn btn-secondary"> 
+									<input type="radio"	name="JoinSelect" id="option2" value="Administrator">Administrator</label>
+									</c:if>
+								</div>
 							</div>
 
 
@@ -83,6 +97,8 @@ body {
 									name="name" value="${param.name }">
 								<c:if test="${errors.name }">이름을 입력하세요.</c:if>
 							</div>
+							<div class="form-group">
+								<i class="fas fa-venus-mars"></i>
 							<div class="btn-group btn-group-toggle" data-toggle="buttons">
 								<label for="gender"></label> &nbsp;&nbsp; <label
 									class="btn btn-secondary active"> <input type="radio"
@@ -90,6 +106,7 @@ body {
 								</label> <label class="btn btn-secondary"> <input type="radio"
 									name="gender" id="option2" value="male">Male
 								</label>
+							</div>
 							</div>
 
 							<div class="form-group">
@@ -111,7 +128,7 @@ body {
 
 							<input type="submit" value="Sign in" class="btn btn-danger">
 							<input class="btn btn-danger" type="button" value="취소" onclick="history.go(-1)" />
-							<button id="showAd" class="btn btn-danger">N</button>
+							<button id="showAd" class="btn btn-warning fas fa-user-cog"> </button>
 						</div>
 					</form>
 

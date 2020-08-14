@@ -156,8 +156,8 @@ public class MovieDao {
 		
 		try {
 			pstmt = conn.prepareStatement(
-					"SELECT movieId, movieTitle, director, movieGenre"
-					+ "FROM movie where CONCAT(movieTitle,director,movieGenre) LIKE ? "  
+					"SELECT * "
+					+ "FROM movie where movieTitle LIKE ? "  
 					+ "ORDER BY movieId DESC LIMIT ?,?");
 			
 			pstmt.setString(1, "%"+search+"%");

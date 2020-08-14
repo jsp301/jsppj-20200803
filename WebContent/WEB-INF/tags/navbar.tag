@@ -39,20 +39,21 @@
 			</c:if>
 		</div>
 		
-		<div class="navbar-nav " >
+		<!-- search -->
+		<div class="navbar-nav" >
+			<div><i class="fas fa-search" ></i></div>
 			<div class="input-group mb-3">
-			<form action="SearchMovieList.jsp" method="post">
-				<div class="input-group-prepend">
-				<select name="sk" class="btn btn-outline-primary" > <!-- search key -->
-					<option value="movieTitle">영화 제목</option>
-					<option value="director">감독</option>
-					<option value="movieGenre">장르</option>
-				</select>
-				</div>
-				<div>
-				<input type="text" name="sv" class="form-control"/> <!-- search value -->
-				<input type="submit" value="search" class="form-control"/>
-				</div>
+			<form action="searchMovie.do" style="width:-10px;float:left;" >
+			<table>
+				<tr><!-- search value -->
+					<td>
+					<input class="form-control" type="text" name="sv" /> 
+					</td>
+					<td>
+					<input class="btn btn-danger" type="submit" value="search" />
+					</td>
+				</tr>
+			</table>				
 			</form>
 		</div>		
 		

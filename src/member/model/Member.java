@@ -1,5 +1,7 @@
 package member.model;
 
+import java.util.ArrayList;
+
 //Member 저장소
 public class Member {
 	private String userSelect;
@@ -8,7 +10,7 @@ public class Member {
 	private String userName;
 	private String userGender;
 	private String userEmail;
-	
+	private ArrayList<Member> memberList;
 	
 	public Member(String userSelect, String userId, String userpw, String userName, String userGender, String userEmail) {
 		this.userSelect = userSelect;
@@ -19,16 +21,17 @@ public class Member {
 		this.userEmail = userEmail;
 	}
 	
+	public ArrayList<Member> getMemberList(){
+		return memberList;
+	}
+	
 	public String getUserSelect() {
 		return userSelect;
 	}
 
-
 	public void setUserSelect(String userSelect) {
 		this.userSelect = userSelect;
 	}
-
-
 
 
 	public String getUserId() {

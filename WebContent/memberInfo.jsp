@@ -36,6 +36,10 @@
 	
 	<hr color="red" />
 	
+	<div class="container">
+		<div class="row">
+			<div class="col">
+	
 	<table class="table table-striped table-dark">
 		<thead>
 			<tr>
@@ -71,6 +75,9 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
+	</div>
+	</div>
 	
 	
 	<form action="changeMemInfo.do" method="post">

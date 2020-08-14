@@ -73,7 +73,7 @@
 	<marquee onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="gold">
 		<font size="5" color="Green"> <a href="https://www.netflix.com/kr/" style="color: black">영화 소개 </a> </font>
 	</marquee>
-	<marquee behavior="alternate" onmouseover="stop();" onmouseout="start();" scrollamount="10" direction="left"	bgcolor="red">
+	<marquee behavior="alternate" onmouseover="stop();" onmouseout="start();" scrollamount="20" direction="left"	bgcolor="red">
 	<c:forEach var="movie" items="${mainMovie.content }">
 		<font size="5"> 
 		<a href="${ctxPath }/read.do?no=${movie.number}" style="color: black"> // ${movie.title} // </a>

@@ -105,7 +105,7 @@
 
 			<input type="submit" value="Sign in" class="btn btn-danger">
 			<input	class="btn btn-danger" type="button" value="취소" onclick="history.go(-1)" />
-      <button id ="showAd">N</button>
+      <button id ="showAd" class="fas fa-user-cog btn btn-warning"></button>
 		</div>
 	</form>
 			
@@ -123,7 +123,7 @@
 <div id="admin1">
 <form action="admin.do" method="post">
 <input type="password" name="password2" />
-<input type="submit" value="Admin"/>
+<input type="submit" value="Admin" class="btn btn-danger"/>
 </form>
 </div>
 

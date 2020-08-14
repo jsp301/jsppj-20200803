@@ -148,6 +148,36 @@ public class MovieDao {
 		}
 	}
 	
+	// search
+	public List<Movie>	search(Connection conn, int startRow, int Size, String search)
+	throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(
+					"SELECT movieId, movieTitle, director, movieGenre"
+					+ "FROM movie where CONCAT(movieTitle,director,movieGenre) LIKE ? "  
+					+ "ORDER BY movieId DESC LIMIT ?,?");
+			
+			pstmt.setString(1, "%"+search+"%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, Size);
+			
+			rs = pstmt.executeQuery();
+			List<Movie> result = new ArrayList<>();
+			while (rs.next()) {
+				result.add(convertMovie(rs));
+			}
+			return result;
+		    
+		} finally {
+			JdbcUtil.close(rs, pstmt);
+		} 
+		
+	} 
+	
+	
 	
 }
 

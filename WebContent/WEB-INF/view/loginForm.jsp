@@ -42,14 +42,29 @@
 	<form action="login.do" method="post">	
 		<div class="login-box">
 			<h1 style="border-bottom: 6px solid red;">Login</h1>
-			
-			<div class="form-group">
-				<i class="fas fa-user-cog"></i>
-				<select name="LoginSelect" id="select1" class="form-control">
+
+
+
+			<div>
+				<i class="fas fa-user-cog"></i> 
+				<div class="form-group btn-group btn-group-toggle" data-toggle="buttons">
+					<label for="LoginSelect" ></label>
+					<label	class="btn btn-secondary active"> 
+					<input type="radio"	name="LoginSelect" id="option1" value="Customer" checked>Customer</label> 
+					<label class="btn btn-secondary"> 
+					<input type="radio"	name="LoginSelect" id="option2" value="Administrator">Administrator</label>
+				</div>
+			</div>
+
+
+
+<!-- 			<div class="form-group">
+				<i class="fas fa-user-cog"></i> 
+				<select name="LoginSelect"	id="select1" class="form-control">
 					<option name="LoginSelect" value="Customer">Customer</option>
 					<option name="LoginSelect" value="Administrator">Administrator</option>
 				</select>
-      </div>  
+			</div> -->
 
 
 

@@ -21,11 +21,16 @@ public class SearchHandler implements CommandHandler {
 			pageNo = Integer.parseInt(pageNoVal);
 		}
 		
-		SearchMovie searchMovie = smService.getSearchMovie(pageNo);
+		String search = "";
+		if(req.getParameter("sv") != null) {
+			search = req.getParameter("sv");
+		}
+		
+		SearchMovie searchMovie = smService.getSearchMovie(pageNo, search);
 		
 		req.setAttribute("searchMovie", searchMovie);
 		
-		return "/WEB-INF/view/readMovie.jsp";
+		return "/WEB-INF/view/SearchMovieList.jsp";
 	}
 	
 }

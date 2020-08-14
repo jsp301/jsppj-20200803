@@ -77,20 +77,22 @@
 	</table>
 	</div>
 	</div>
+	
+	<div style="float: left">
+	<form action="changeMemInfo.do" method="post" style="float: left; width: -10px;">
+		<input type="submit" value="회원정보변경" class="btn btn-danger"/>
+	</form>
+	<form action="deleteMember.do" method="post" style="float: left; width: -10px;">
+		<input type="submit" value="회원탈퇴" class="btn btn-danger"/>
+	</form>
+	</div>
 	</div>
 	
 	
-	<form action="changeMemInfo.do" method="post">
-	<input type="submit" value="회원정보변경" class="btn btn-danger"/>
-	</form>
+
 	<%--<input type="button" onclick="location='${ctxPath }/changeMemInfo.do'" value="회원 정보 변경" /> --%>
-	
-<!-- 	<form action="changePwd.do" method="post">
+	<!--<form action="changePwd.do" method="post">
 		<input type="submit" value="암호변경" />
-	</form> -->
-	<form action="deleteMember.do" method="post">
-		<input type="submit" value="회원탈퇴" class="btn btn-danger"/>
-	</form>
-	
+	</form> -->	
 </body>
 </html>

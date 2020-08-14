@@ -124,7 +124,7 @@
 						
 							<td>
 								<select name="score" class="btn btn-danger dropdown-toggle">
-									<option value="0">점수 선택</option>
+									<option value="6">점수 선택</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>

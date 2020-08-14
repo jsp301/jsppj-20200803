@@ -30,7 +30,7 @@
 
 </head>
 <body>
-	<u:navbar home="active" />
+	<u:navbar/>
 
 	<hr color="red" />
 	<div class="container mt-3">

@@ -27,7 +27,6 @@
 	<u:navbar />
 	
 	<hr color="red" />
-	<u:pageNoCon />
 	
 	<hr />
 	<div class="container" align="center">
@@ -64,7 +63,8 @@
 	
 	</div>
 
-
+	<hr color="red" />
+	<u:pageNoCon2 />
 
 
 </body>

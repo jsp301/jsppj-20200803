@@ -99,29 +99,25 @@ body {
 								<c:if test="${errors.name }">이메일을 입력하세요.</c:if>
 							</div>
 							<div class="form-group">
-								<i class="fas fa-lock"></i> <input type="password"
-									class="form-control" placeholder="Password" id="input3"
-									name="password" required>
+								<i class="fas fa-lock"></i> 
+                <input type="password" class="form-control" placeholder="Password" id="input3" name="password" required>
 							</div>
 							<div class="form-group">
-								<i class="fas fa-lock"></i> <input type="password"
-									class="form-control" placeholder="Password" id="input4"
-									name="confirmPassword" required>
+								<i class="fas fa-lock"></i> 
+                <input type="password" class="form-control" placeholder="Password" id="input4" name="confirmPassword" required>
 								<c:if test="${errors.confirmPassword }">확인을 입력하세요.</c:if>
 								<c:if test="${errors.notMatch }">암호와 확인이 일치하지 않습니다.</c:if>
 							</div>
 
 							<input type="submit" value="Sign in" class="btn btn-danger">
-							<input class="btn btn-danger" type="button" value="취소"
-								onclick="history.go(-1)" />
+							<input class="btn btn-danger" type="button" value="취소" onclick="history.go(-1)" />
 							<button id="showAd" class="btn btn-danger">N</button>
 						</div>
 					</form>
 
 
 				</td>
-				<td align="right"><img src="${ctxPath }/css/netflixCrown.jpg"
-					alt="" /></td>
+				<td align="right"><img src="${ctxPath }/css/netflixCrown.jpg"	alt="" /></td>
 			</tr>
 		</table>
 	</div>
@@ -129,17 +125,14 @@ body {
 
 	<hr color="red" />
 
-
-
-
 	<div id="admin1" class="form-group">
 		<form action="admin.do" method="post">
 		<i class="fas fa-lock"></i>
 			<input type="password" name="password2" class="form-control" placeholder="Password" id="input5" /> 
-			<input type="submit"
-				value="Admin" class="btn btn-danger"/>
+			<input type="submit" value="Admin" class="btn btn-danger"/>
 		</form>
 	</div>
+
 
 
 </body>

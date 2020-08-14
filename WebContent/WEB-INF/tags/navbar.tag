@@ -14,7 +14,7 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<div class="navbar-nav ">
+		<div class="navbar-nav mr-auto">
 			<c:if test="${not empty sessionScope.authUser }">
 				<a class="nav-link nav-item ${current.logout }" 
 					href="logout.do" style="color:white">로그아웃</a>
@@ -37,7 +37,24 @@
 				<a class="nav-link nav-item" href="write.do" style="color:red">영화 등록</a>
 				<a class="nav-link nav-item" href="totalMember.do" style="color:red">MEMBER</a>
 			</c:if>
-						
 		</div>
+		
+		<div class="navbar-nav " >
+			<div class="input-group mb-3">
+			<form action="SearchMovieList.jsp" method="post">
+				<div class="input-group-prepend">
+				<select name="sk" class="btn btn-outline-primary" > <!-- search key -->
+					<option value="movieTitle">영화 제목</option>
+					<option value="director">감독</option>
+					<option value="movieGenre">장르</option>
+				</select>
+				</div>
+				<div>
+				<input type="text" name="sv" class="form-control"/> <!-- search value -->
+				<input type="submit" value="search" class="form-control"/>
+				</div>
+			</form>
+		</div>		
+		
 	</div>
 </nav>

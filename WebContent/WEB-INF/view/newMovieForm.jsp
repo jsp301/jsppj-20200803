@@ -25,7 +25,7 @@
 </head>
 <body>
 
-<u:navbar home="active" />
+<u:navbar addMovie="active" />
 
 <hr color="red" />
 

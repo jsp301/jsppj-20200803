@@ -31,7 +31,7 @@ body {
 </head>
 <body>
 
-	<u:navbar home="active" />
+	<u:navbar member="active" />
 
 	<hr color="red" />
 	
